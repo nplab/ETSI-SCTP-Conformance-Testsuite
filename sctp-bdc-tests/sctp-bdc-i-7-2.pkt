@@ -25,33 +25,18 @@
 // SUCH DAMAGE.
 //
 
-// Create a blocking 1-to-1 style listening socket
- 0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
++0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
++0.0 fcntl(3, F_GETFL) = 0x2 (flags O_RDWR)
++0.0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+// Check the handshake with an empty(!) cookie
++0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
++0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
 
-+0.0 bind(3, ..., ...) = 0
-+0.0 listen(3, 1) = 0
-// Perform the passive associtation setup
-+0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1,
-                  PARAMETER[type=0xc00c, len=5, val=[0xff]]]
-+0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=3,
-                      ECN_CAPABLE[],
-                      PARAMETER[type=0xc000, len=4, val=[]],
-                      PARAMETER[type=0x8008, len=9, val=...],
-                      PARAMETER[type=0x8002, len=36, val=...],
-                      PARAMETER[type=0x8004, len=8, val=...],
-                      PARAMETER[type=0x8003, len=6, val=...],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc00c,
-                                                               len=5,
-                                                               val=[0xff]]]],
-                      STATE_COOKIE[len=..., val=...]]
-+0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
-+0.0 > sctp: COOKIE_ACK[flgs=0]
-// Check if the setup was sucessful
-+0.0 accept(3, ..., ...) = 4
-// Tear down the association
-+1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-+0.0 > sctp: SHUTDOWN_ACK[flgs=0]
-+0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
-+0.0 close(4) = 0
-+0.0 close(3) = 0
+// inject init_ack with bundled data packet
++0.1 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=1, STATE_COOKIE[len=4, val=...]];
+			 DATA[flgs=B, len=100, tsn=1, sid=0, ssn=0, ppid=0]
+
+// TODO: valid behaviour is here to ignore the bundled init_ack, to send an abort or to accept the init_ack but ignore the data chunk
+//       --> at the moment it is assumed that the init_ack is ignored!
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
 
