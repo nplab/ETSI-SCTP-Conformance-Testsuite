@@ -1,6 +1,4 @@
-Copyright (c) 2015 Julian Cordes, Nils Frenking, Jens Hoelscher
-
-Copyright (c) 2015 Michael Tuexen
+Copyright (c) 2015 Julian Cordes, Nils Frenking, Jens Hoelscher, Michael Tuexen
 
 All rights reserved.
 
