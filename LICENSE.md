@@ -1,5 +1,7 @@
 Copyright (c) 2015 Julian Cordes, Nils Frenking, Jens Hoelscher
+
 Copyright (c) 2015 Michael Tuexen
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
