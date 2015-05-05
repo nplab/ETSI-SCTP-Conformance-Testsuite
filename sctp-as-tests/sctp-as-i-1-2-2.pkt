@@ -34,7 +34,9 @@
 +0.0 > sctp: INIT[tag=1 tsn=0]
 +0.0 < sctp: INIT_ACK[tag=2 a_rwnd=1500 os=1 is=1 tsn=0] // FIXME: state cookie
 +0.0 > sctp: COOKIE_ECHO[] // FIXME: state cookie
-+1.1 > sctp: COOKIE_ECHO[]
+// Do not send ACK, but wait for an aditional ECHO 
++1.1 > sctp: COOKIE_ECHO[] // FIXME: state cookie
+// Send ACK after the second ECHO was seen
 +0.0 < sctp: COOKIE_ACK[]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
