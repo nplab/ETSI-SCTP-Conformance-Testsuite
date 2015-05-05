@@ -29,6 +29,7 @@
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 // adjust initial rto to 200ms to avoid long runtime of script
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=200, srto_max=200, srto_min=50}, 16) = 0 
++0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=0, sinit_max_instreams=0, sinit_max_attempts=0, sinit_max_init_timeo=200}, 8) = 0
 // set socket to nonblocking mode
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
