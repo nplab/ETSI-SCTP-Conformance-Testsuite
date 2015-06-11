@@ -14,6 +14,6 @@ The testsuite contains the following test purposes:
 * [Data (D)](sctp-d-tests/README.md)
 * [Acknowledgement (A)](sctp-a-tests/README.md)
 * [Miscellaneous (M)](sctp-m-tests/README.md)
-* [Retransmission Timer (RT)](sctp-e-tests/README.md)
+* [Retransmission Timer (RT)](sctp-rt-tests/README.md)
 
 
