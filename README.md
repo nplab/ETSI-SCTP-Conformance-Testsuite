@@ -5,7 +5,7 @@ The initial focus is on supporting FreeBSD and Linux.
 
 The testsuite contains the following test purposes:
 * [Association Setup (AS)]()
-* [Association Termination (AT)](https://github.com/nplab/ETSI-SCTP-Conformance-Testsuite/blob/master/sctp-at-tests/README.md)
+* [Association Termination (AT)](sctp-at-tests/README.md)
 * [Invalid Message Handling (IMH)]()
 * [Duplicate Messages (DM)]()
 * [Fault Handling (FH)]()
