@@ -1,4 +1,4 @@
-# Status of the Miscellaneous tests
+# Status of the Miscellaneous Tests
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
