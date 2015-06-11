@@ -1,4 +1,5 @@
 | Name           | Supported OS | Result FreeBSD | Result Linux |
+|----------------|--------------|----------------|--------------|
 |sctp-at-v-2-2   |              |   Unknown      |   Unknown    |
 |sctp-at-i-2-3   |              |   Unknown      |   Unknown    |
 |sctp-at-i-2-4   |              |   Unknown      |   Unknown    |
