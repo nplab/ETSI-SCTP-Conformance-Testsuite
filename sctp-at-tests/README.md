@@ -1,4 +1,4 @@
-# Status of the Association Termination tests
+# Status of the Association Termination Tests
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
