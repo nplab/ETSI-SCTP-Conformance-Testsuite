@@ -4,16 +4,16 @@ An implementation of the SCTP Conformance Tests for packetdrill according to
 The initial focus is on supporting FreeBSD and Linux.
 
 The testsuite contains the following test purposes:
-* [Association Setup (AS)]()
+* [Association Setup (AS)](sctp-as-tests/README.md)
 * [Association Termination (AT)](sctp-at-tests/README.md)
-* [Invalid Message Handling (IMH)]()
-* [Duplicate Messages (DM)]()
-* [Fault Handling (FH)]()
-* [Error (E)]()
-* [Bundling of Data Chunks with Control Chunks (BDC)]()
-* [Data (D)]()
-* [Acknowledgement (A)]()
-* [Miscellaneous (M)]()
-* [Retransmission Timer (RT)]()
+* [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)
+* [Duplicate Messages (DM)](sctp-dm-tests/README.md)
+* [Fault Handling (FH)](sctp-fh-tests/README.md)
+* [Error (E)](sctp-e-tests/README.md)
+* [Bundling of Data Chunks with Control Chunks (BDC)](sctp-bdc-tests/README.md)
+* [Data (D)](sctp-d-tests/README.md)
+* [Acknowledgement (A)](sctp-a-tests/README.md)
+* [Miscellaneous (M)](sctp-m-tests/README.md)
+* [Retransmission Timer (RT)](sctp-e-tests/README.md)
 
 
