@@ -1,5 +1,5 @@
 | Name                                  | Supported OS | Result FreeBSD | Result Linux |
-|------------------------|--------------|----------------|--------------|
+|:--------------------------------------|:------------:|:--------------:|:------------:|
 |[sctp-at-v-2-2](sctp-at-v-2-2.pkt)     |              |   Unknown      |   Unknown    |
 |[sctp-at-i-2-3](sctp-at-i-2-3.pkt)     |              |   Unknown      |   Unknown    |
 |[sctp-at-i-2-4](sctp-at-i-2-4.pkt)     |              |   Unknown      |   Unknown    |
