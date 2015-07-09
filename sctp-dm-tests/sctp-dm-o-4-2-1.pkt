@@ -35,9 +35,8 @@
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
 
-//+1.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
-//+0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=1, ...]
-
++1.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
++0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=1, ...]
 
 // Tear down the association
 +1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
