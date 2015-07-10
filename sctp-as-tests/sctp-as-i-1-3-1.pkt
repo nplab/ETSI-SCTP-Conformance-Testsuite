@@ -39,17 +39,17 @@
 // Trigger the active associtation setup
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 
-* > sctp: INIT[tag=1 tsn=0]
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
 
 // now check for max. 8 retransmissions of init!
-* > sctp: INIT[tag=1 tsn=0] // 1 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 2 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 3 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 4 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 5 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 6 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 7 retransmission
-* > sctp: INIT[tag=1 tsn=0] // 8 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 1 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 2 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 3 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 4 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 5 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 6 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 7 retransmission
+* > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...] // 8 retransmission
 
 +1.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0
 

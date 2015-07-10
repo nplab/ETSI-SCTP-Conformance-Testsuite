@@ -4,12 +4,12 @@ The following table show the current status of the Implementation. Once the impl
 
 | Name                                    | Implemented | Finalized | OS specifc | Result FreeBSD | Result Linux |
 |:----------------------------------------|:-----------:|:---------:|:----------:|:--------------:|:------------:|
-|[sctp-as-v-1-1-1](sctp-as-v-1-1-1.pkt)   | Almost      | No        | No         | Unknown        | Unknown      |
-|[sctp-as-v-1-1-2](sctp-as-v-1-1-2.pkt)   | Almost      | No        | No         | Unknown        | Unknown      |
-|[sctp-as-i-1-2-1](sctp-as-i-1-2-1.pkt)   | Almost     | No        | No         | Unknown        | Unknown      |
-|[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt)   | Almost      | No        | No         | Unknown        | Unknown      |
-|[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt)   | Almost      | No        | No         | Unknown        | Unknown      |
-|[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt)   | Almost      | No        | No         | Unknown        | Unknown      |
+|[sctp-as-v-1-1-1](sctp-as-v-1-1-1.pkt)   | Yes      | No        | No         | Unknown        | Unknown      |
+|[sctp-as-v-1-1-2](sctp-as-v-1-1-2.pkt)   | Yes      | No        | No         | Unknown        | Unknown      |
+|[sctp-as-i-1-2-1](sctp-as-i-1-2-1.pkt)   | Yes     | No        | No         | Unknown        | Unknown      |
+|[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt)   | Yes      | No        | No         | Unknown        | Unknown      |
+|[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt)   | Yes      | No        | No         | Unknown        | Unknown      |
+|[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt)   | Yes      | No        | No         | Unknown        | Unknown      |
 |[sctp-as-i-1-4](sctp-as-i-1-4.pkt)       | No          | No        | No         | Unknown        | Unknown      |
 |[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt)   | No          | No        | No         | Unknown        | Unknown      |
 |[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt)   | No          | No        | No         | Unknown        | Unknown      |
