@@ -38,7 +38,7 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Inject an unknown chunk with 00 as the upper two bits of the chunk type.
-+0.1 < sctp: CHUNK[type=0x3F, flgs=0, len=4, val=[]];
++0.1 < sctp: CHUNK[type=0x3F, flgs=0, len=7, val=[0x01, 0x02, 0x03]];
              DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
 // Check that the DATA chunk was not processed.
 +0.0 read(3, ..., 2000) = -1 EWOULDBLOCK (Operation would block)
