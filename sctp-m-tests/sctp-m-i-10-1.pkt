@@ -37,6 +37,6 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Inject an unknown chunk with 11 as the upper two bits of the chunk type.
-+0.1 < sctp: CHUNK[type=0xCF, flgs=0, len=4, val=[]]; DATA[flgs=BE, len=1016, tsn=1, ppid=0]
++0.1 < sctp: CHUNK[type=0xCF, flgs=0, len=4, val=[]]; DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
 +0.0 > sctp: ERROR[flgs=0, ...]; SACK[flgs=0, cum_tsn=1, a_rwnd=1500, gaps=[], dups=[]] // FIXME: Check error cause
 +0.0 read(3, ..., 2000) = 1000
