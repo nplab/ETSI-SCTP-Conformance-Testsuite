@@ -39,7 +39,12 @@
 +0.1 < sctp: SHUTDOWN_ACK[flgs=0]
 // still no error at socket?
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
+
 // TODO: check for abort message?
+
+// inject heartbeat to see if association is still active
++1.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
+* > sctp: HEARTBEAT_ACK[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
 
 // Tear down the association
 +0.0 close(3) = 0
