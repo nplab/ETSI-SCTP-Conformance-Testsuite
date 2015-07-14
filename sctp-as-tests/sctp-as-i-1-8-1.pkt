@@ -35,15 +35,15 @@
                   PARAMETER[type=0xc00c, len=5, val=[0xff]]]
 +0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=3,
                       ECN_CAPABLE[],
-                      PARAMETER[type=0xc000, len=4,val=[]],
-                      PARAMETER[type=0x8008, len=9 ,val=...],
-                      PARAMETER[type=0x8002,len=36, val=...],
-                      PARAMETER[type=0x8004, len=8,val=...],
-                      PARAMETER[type=0x8003,len=6, val=...],
+                      PARAMETER[type=0xc000, len=4, val=[]],
+                      PARAMETER[type=0x8008, len=9, val=...],
+                      PARAMETER[type=0x8002, len=36, val=...],
+                      PARAMETER[type=0x8004, len=8, val=...],
+                      PARAMETER[type=0x8003, len=6, val=...],
                       UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc00c,
                                                                len=5,
                                                                val=[0xff]]]],
-                      STATE_COOKIE[len=260, val=...]]
+                      STATE_COOKIE[len=..., val=...]]
 +0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
