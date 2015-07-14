@@ -35,9 +35,10 @@
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
 
-// TODO: how can  one bundle und inject multiple data chunks in one sctp packet?
-//+0.0 > sctp: DATA[flgs=B, len=300, tsn=1, sid=0, ssn=0, ppid=0]
-//+0.0 > sctp: SACK[flgs=0, cum_tsn=3, a_rwnd=..., gaps=[], dups=[]]
++0.0 < sctp: DATA[flgs=B, len=100, tsn=1, sid=0, ssn=0, ppid=0];
+	         DATA[flgs=0, len=100, tsn=2, sid=0, ssn=0, ppid=0];
+			 DATA[flgs=0, len=100, tsn=3, sid=0, ssn=0, ppid=0]
++0.0 > sctp: SACK[flgs=0, cum_tsn=3, a_rwnd=..., gaps=[], dups=[]]
 
 // Tear down the association
 +1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
