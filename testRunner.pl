@@ -29,7 +29,7 @@ sub getTestFilesFromDir {
 	};
 
 	find($findCallback, $dirWithTests);
-	@testFilesSorted = sort {return ${$a}{'fileName'} cmp ${$b}{'fileName'};} (@testFiles);
+	my @testFilesSorted = sort {return ${$a}{'fileName'} cmp ${$b}{'fileName'};} (@testFiles);
 	return @testFilesSorted;
 }
 
