@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+use strict;
+use warnings;
+
 use File::Find;
 
 sub println {
@@ -46,7 +49,7 @@ if (defined $ARGV[0]) {
 
 my @testFiles = getTestFilesFromDir($dirWithTests);
 
-foreach $testScriptRef (@testFiles) {
+foreach my $testScriptRef (@testFiles) {
 	my %testScript = %{$testScriptRef};
 	println " --- " . $testScript{'fileName'} . " ---";
 	executeTestScript($testScript{'absolutePath'});
