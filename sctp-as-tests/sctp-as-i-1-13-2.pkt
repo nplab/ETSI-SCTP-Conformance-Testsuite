@@ -29,7 +29,9 @@
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
-+0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=0, is=1, tsn=0]
 
-* > sctp: ABORT[flgs=0x00, ...]
+// TODO: Set sut only supports ipv4. 
 
++0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=0, COOKIE_PRESERVATIVE[incr=12345], SUPPORTED_ADDRESS_TYPES[types=[IPv6]], IPV6_ADDRESS[addr=fe80::250:56ff:fe24:9e6]]
+
++0.0 > sctp: ABORT[flgs=T, ...] //TODO: Check for cause: Unresolvable Address 
