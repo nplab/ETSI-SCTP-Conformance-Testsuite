@@ -36,9 +36,49 @@ sub getTestFilesFromDir {
 sub executeTestScript {
 	my ($scriptPath) = @_;
 	my $command = "packetdrill " . $scriptPath;
-	if (system($command) == 0) {
-		println "OK";
+	my $ret = system($command);
+
+	return $ret;
+}
+
+sub executeTestFiles {
+	my (@testFiles) = @_;
+	my @passed = ();
+	my @failed = ();
+
+	foreach my $testScriptRef (@testFiles) {
+		my %testScript = %{$testScriptRef};
+		println " --- " . $testScript{'fileName'} . " ---";
+		my $returnCode = executeTestScript($testScript{'absolutePath'});
+		if ($returnCode == 0) {
+			push(@passed, $testScript{'fileName'});
+			println "OK";
+		}
+		else {
+			push(@failed, $testScript{'fileName'});
+			println "Failure";
+		}
 	}
+	return (\@passed, \@failed);
+}
+
+sub printTestReport {
+	my ($passedTestsRef, $failedTestsRef) = @_;
+	my @passedTests = @{$passedTestsRef};
+	my @failedTests = @{$failedTestsRef};
+
+	println "--- Overview of executed test files ---";
+	println "FAILED TESTS:";
+
+	foreach my $failedTest (@failedTests) {
+		println " - $failedTest";
+	} 
+
+	println "PASSED TESTS:";
+
+	foreach my $passedTest (@passedTests) {
+		println " - $passedTest";
+	} 
 }
 
 my $dirWithTests= ".";
@@ -49,8 +89,8 @@ if (defined $ARGV[0]) {
 
 my @testFiles = getTestFilesFromDir($dirWithTests);
 
-foreach my $testScriptRef (@testFiles) {
-	my %testScript = %{$testScriptRef};
-	println " --- " . $testScript{'fileName'} . " ---";
-	executeTestScript($testScript{'absolutePath'});
-}
+my ($passedTestsRef, $failedTestsRef) = executeTestFiles(@testFiles);
+
+print "\n------------------------------\n";
+
+printTestReport($passedTestsRef, $failedTestsRef);
