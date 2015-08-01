@@ -37,9 +37,9 @@
 +0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Inject an unknown chunk with 11 as the upper two bits of the chunk type.
-+0.1 < sctp: CHUNK[type=0xCF, flgs=0, len=7, val=[0x01, 0x02, 0x03]];
+// Inject an unknown chunk with chunk type 11101111.
++0.1 < sctp: CHUNK[type=0xEF, flgs=0, len=5, val=[0x01]];
              DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
-+0.0 > sctp: ERROR[flgs=0, ...]; // FIXME: Check error cause
++0.0 > sctp: ERROR[flgs=0, UNRECOGNIZED_CHUNK_TYPE[chk=CHUNK[type=0xEF, flgs=0, len=5, val=[0x01]]]];
              SACK[flgs=0, cum_tsn=1, a_rwnd=..., gaps=[], dups=[]]
 +0.0 read(3, ..., 2000) = 1000
