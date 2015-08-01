@@ -39,22 +39,24 @@
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Send the first message, which gets SACKed by the peer
 +0.0 write(3, ..., 1452) = 1452
-+0.0 > sctp: DATA[flgs=BE, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=4500, gaps=[], dups=[]]
 // Send the second message, which gets SACKed by the peer
 +0.0 write(3, ..., 1452) = 1452
-+0.0 > sctp: DATA[flgs=BE, len=1468, tsn=2, sid=0, ssn=1, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1468, tsn=2, sid=0, ssn=1, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=2, a_rwnd=4500, gaps=[], dups=[]]
 // Send the third message, which gets ignored by the peer
 +0.0 write(3, ..., 1452) = 1452
-+0.0 > sctp: DATA[flgs=BE, len=1468, tsn=3, sid=0, ssn=2, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1468, tsn=3, sid=0, ssn=2, ppid=0]
 // Send the fourth message, which will be sent out.
 +0.0 write(3, ..., 1452) = 1452
-+0.0 > sctp: DATA[flgs=BE, len=1468, tsn=4, sid=0, ssn=3, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1468, tsn=4, sid=0, ssn=3, ppid=0]
 // Send the fifth message, which will not be put on the wire due to flow control
 +0.0 write(3, ..., 1452) = 1452
 // SACK the fourth message
 +0.1 < sctp: SACK[flgs=0, cum_tsn=2, a_rwnd=0, gaps=[2:2], dups=[]]
 // Now the T3 timeout happens. Make sure that the third message is retransmitted
 // and not the unsent fifth message.
-+0.9 > sctp: DATA[flgs=BE, len=1468, tsn=3, sid=0, ssn=2, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1468, tsn=3, sid=0, ssn=2, ppid=0]
++0.0 < sctp: SACK[flgs=0, cum_tsn=4, a_rwnd=4500, gaps=[], dups=[]]
+*    > sctp: DATA[flgs=BE, len=1468, tsn=5, sid=0, ssn=4, ppid=0]

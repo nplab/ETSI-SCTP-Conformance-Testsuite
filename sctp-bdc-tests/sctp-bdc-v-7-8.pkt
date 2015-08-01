@@ -25,11 +25,21 @@
 // SUCH DAMAGE.
 //
 
-// Create a blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-+0.0 bind(3, ..., ...) = 0
-+0.0 listen(3, 1) = 0
-+0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=0, is=1, tsn=0]
++0.0 fcntl(3, F_GETFL) = 0x2 (flags O_RDWR)
++0.0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) = 0
++0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
++0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
++0.1 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=1, STATE_COOKIE[len=4, val=...]]
++0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.1 < sctp: COOKIE_ACK[flgs=0]
++0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 
-* > sctp: ABORT[flgs=0x00, ...]
-
+// Tear down the association
++0.0 close(3) = 0
++0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.1 < sctp: SHUTDOWN_ACK[flgs=0];
+			 DATA[flgs=0, len=100, tsn=1, sid=0, ssn=0, ppid=0]
+// TODO: it is assumed, that the above message was processed and that the data chunk was ignored
+// correct behaviour would also be: send ABORT or to ignore the complete packet and to remain in shutdown state...
++0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0]

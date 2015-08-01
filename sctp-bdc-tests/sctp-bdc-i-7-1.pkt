@@ -25,11 +25,10 @@
 // SUCH DAMAGE.
 //
 
-// Create a blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
+
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
-+0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=0, is=1, tsn=0]
-
-* > sctp: ABORT[flgs=0x00, ...]
-
++0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1];
+			  DATA[flgs=B, len=100, tsn=1, sid=0, ssn=0, ppid=0]
++0.0 > sctp: ABORT[flgs=0x00]
