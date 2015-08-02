@@ -6,4 +6,7 @@ The following table show the current status of the Implementation. Once the impl
 |:------------------------------------|:-----------:|:---------:|:----------:|:--------------:|:------------:|
 |[sctp-rt-i-11-1](sctp-rt-i-11-1.pkt) | Yes         | No        | No         | Unknown        | Unknown      |
 |[sctp-rt-i-11-2](sctp-rt-i-11-2.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
-|[sctp-rt-i-11-3](sctp-rt-i-11-3.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
+|[sctp-rt-i-11-3](sctp-rt-i-11-3.pkt) | No (Note 1) | No        | No         | Unknown        | Unknown      |
+
+# Notes
+1. Requires multi-homing support (the peer needs more than one address) of packetdrill.
