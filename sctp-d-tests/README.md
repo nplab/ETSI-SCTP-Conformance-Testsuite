@@ -14,8 +14,11 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-d-o-8-8](sctp-d-o-8-8.pkt)   | Yes         | No        | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-9](sctp-d-v-8-9.pkt)   | No          | No        | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-10](sctp-d-v-8-10.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
-|[sctp-d-i-8-11](sctp-d-i-8-11.pkt) | Yes         | No        | No         | Unknown        | Unknown      |
+|[sctp-d-i-8-11](sctp-d-i-8-11.pkt) | Yes         | Yes       | No         | Passed         | Unknown      |
 |[sctp-d-o-8-12](sctp-d-o-8-12.pkt) | Yes         | No        | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-13](sctp-d-v-8-13.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-14](sctp-d-v-8-14.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-15](sctp-d-v-8-15.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
+
+## Notes
+* Fix for [sctp-d-i-8-11](sctp-d-i-8-11.pkt): [head](https://svnweb.freebsd.org/changeset/base/286206).
