@@ -14,5 +14,5 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-bdc-v-7-8](sctp-bdc-v-7-8.pkt) | Yes         | No        | No         | Unknown        | Unknown      |
 
 # Notes
-1. FreeBSD responds with an ABORT wheras [RFC4960]( https://tools.ietf.org/html/rfc4960#section-11.3) requires
+1. FreeBSD responds with an ABORT whereas [RFC4960]( https://tools.ietf.org/html/rfc4960#section-11.3) requires
    it to be silently discarded. This is tracked in [issue](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/4).
