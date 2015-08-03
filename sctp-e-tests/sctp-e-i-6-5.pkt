@@ -34,11 +34,11 @@
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
 // Inject an INIT-ACK with an unknown parameter using the upper bits 11.
 +0.0 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=1,
-                      PARAMETER[type=0xc00c, len=5, val=[0xff]],
+                      PARAMETER[type=0xc00c, len=4, val=[]],
                       STATE_COOKIE[len=4, val=...]]
 // Verify that the SUT reports the unknown parameter
 +0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...];
-             ERROR[flgs=0, UNRECOGNIZED_PARAMETERS[params=[PARAMETER[type=0xc00c, len=5, val=[0xff]]]]]
+             ERROR[flgs=0, UNRECOGNIZED_PARAMETERS[params=[PARAMETER[type=0xc00c, len=4, val=[]]]]]
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
