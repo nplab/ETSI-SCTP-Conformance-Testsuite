@@ -25,6 +25,9 @@
 // SUCH DAMAGE.
 //
 
+// Allow for variation of timers
+--tolerance_usecs=50000
+
 // Create a non-blocking 1-to-1 style socket
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
@@ -38,8 +41,12 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-//Close Association
+// Trigger the sending of a DATA chunk
 +0.0 write(3, ..., 1000) = 1000
+// Verify transmission and 5 retransmissions
 +0.0 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
 +0.1 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
 +0.2 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
++0.4 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
++0.8 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
++0.8 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
