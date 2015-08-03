@@ -25,8 +25,8 @@
 // SUCH DAMAGE.
 //
 
+// Create a blocking 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
 +0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
@@ -35,7 +35,10 @@
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
 
-+0.0 < sctp: DATA[flgs=B, len=1000, tsn=1, sid=0, ssn=0, ppid=0]
+// Inject a user message
++0.0 < sctp: DATA[flgs=BE, len=116, tsn=1, sid=0, ssn=0, ppid=0]
++0.0 read(4, ..., 200) = 100
+// Verify that the SACK is sent immediately
 +0.0 > sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=..., gaps=[], dups=[]]
 
 // Tear down the association
@@ -43,4 +46,3 @@
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
-+0.0 close(3) = 0
