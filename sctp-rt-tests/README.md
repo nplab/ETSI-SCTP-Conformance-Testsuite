@@ -4,8 +4,8 @@ The following table show the current status of the Implementation. Once the impl
 
 | Name                                | Implemented | Finalized | OS specifc | Result FreeBSD |   Result Linux  |
 |:------------------------------------|:-----------:|:---------:|:----------:|:--------------:|:---------------:|
-|[sctp-rt-i-11-1](sctp-rt-i-11-1.pkt) | Yes         | No        | No         | Passed         | Passed (Note 1) |
-|[sctp-rt-i-11-2](sctp-rt-i-11-2.pkt) | Yes (Note 2)| No        | No         | Passed         | Passed (Note 1) |
+|[sctp-rt-i-11-1](sctp-rt-i-11-1.pkt) | Yes         | Yes       | No         | Passed         | Passed (Note 1) |
+|[sctp-rt-i-11-2](sctp-rt-i-11-2.pkt) | Yes (Note 2)| Yes       | No         | Passed         | Passed (Note 1) |
 |[sctp-rt-i-11-3](sctp-rt-i-11-3.pkt) | No (Note 3) | No        | No         | Unknown        | Unknown         |
 
 # Notes
