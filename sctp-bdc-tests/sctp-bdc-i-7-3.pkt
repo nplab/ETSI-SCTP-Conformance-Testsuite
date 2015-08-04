@@ -25,6 +25,7 @@
 // SUCH DAMAGE.
 //
 
+// Create a connected blocking 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
@@ -33,14 +34,20 @@
 +0.1 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
-
-+1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-+0.0 > sctp: SHUTDOWN_ACK[flgs=0]
-+0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0];
-			 DATA[flgs=0, len=100, tsn=1, sid=0, ssn=0, ppid=0]
-//TODO: this assumes that the message above was ignored...
-* > sctp: SHUTDOWN_ACK[flgs=0]
-+0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
-
-+0.0 close(4) = 0
 +0.0 close(3) = 0
+// Teardown the association
++0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 > sctp: SHUTDOWN_ACK[flgs=0]
+// Inject a SHUTDOWN_COMPLETE chunk bundled with a DATA chunk
++0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0];
+             DATA[flgs=BE, len=116, tsn=1, sid=0, ssn=0, ppid=0]
+#ifdef FreeBSD
+// FreeBSD just ignores it.
+*    > sctp: SHUTDOWN_ACK[flgs=0]
++0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
+#endif
+#ifdef Linux
+// Linux responds with an ABORT
++0.0 > sctp: ABORT[flgs=0x00, PROTOCOL_VIOLATION[info=...]]
+#endif
++0.0 close(4) = 0
