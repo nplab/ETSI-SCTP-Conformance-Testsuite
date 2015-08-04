@@ -1,4 +1,4 @@
-# Status of the Bundling of Data Chunks with Control Chunks tests
+# Status of the Bundling of Data Chunks with Control Chunks Tests
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
