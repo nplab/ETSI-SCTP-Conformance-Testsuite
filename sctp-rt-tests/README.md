@@ -9,6 +9,6 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-rt-i-11-3](sctp-rt-i-11-3.pkt) | No (Note 3) | No        | No         | Unknown        | Unknown         |
 
 # Notes
-1. Linux sends HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them.
+1. Linux sends HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them once it is implemented ([issue](https://github.com/nplab/packetdrill/issues/27)).
 2. The test descriptions of sctp-rt-i-11-1 and sctp-rt-i-11-2 are identical.
 3. Requires multi-homing support (the peer needs more than one address) of packetdrill.
