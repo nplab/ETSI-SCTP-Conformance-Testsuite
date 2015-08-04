@@ -17,4 +17,4 @@ The following table show the current status of the Implementation. Once the impl
 1. FreeBSD responds with an ABORT whereas [RFC4960]( https://tools.ietf.org/html/rfc4960#section-11.3) requires it to be silently discarded. This is tracked in [issue](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/4).
 2. It is assumed that the SUT bundled the COOKIE-ECHO chunk with the SACK chunk.
 3. It is assused that the SUT ignores the DATA chunk, which is bundled with the SHUTDOWN-ACK chunk, and sends a SHUTDOWN-COMPLETE chunk.
-4. The message flow is correct. The problem is, that read() doesn't return 0 after the teardown handshake is complete.
+4. The message flow is correct. The problem is read() not returning 0 after the teardown handshake is complete.
