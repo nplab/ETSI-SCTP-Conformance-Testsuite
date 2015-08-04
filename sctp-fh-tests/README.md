@@ -15,4 +15,4 @@ The following table show the current status of the Implementation. Once the impl
 
 # Notes
 
-1. Linux sends HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them.
+1. Linux sends HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them once it is implemented ([issue](https://github.com/nplab/packetdrill/issues/27)).
