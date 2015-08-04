@@ -40,9 +40,9 @@
 // Tear down the association
 +0.0 shutdown(3, SHUT_WR) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
+// Inject a DATA chunk bundled with the SHUTDOWN-ACK chunk
 +0.1 < sctp: SHUTDOWN_ACK[flgs=0];
              DATA[flgs=BE, len=116, tsn=1, sid=0, ssn=0, ppid=0]
-// TODO: it is assumed, that the above message was processed and that the data chunk was ignored
-// correct behaviour would also be: send ABORT or to ignore the complete packet and to remain in shutdown state...
+// Ensure that the DATA chunk has been ignored. Other possibilities are allowed.
 +0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.1 read(3, ..., 200) = 0
