@@ -25,28 +25,34 @@
 // SUCH DAMAGE.
 //
 
+// Create a connected blocking 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-+0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=200, srto_min=50}, 16) = 0
-
++0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=200, srto_min=50}, 16) = 0
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
 +0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
 +0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=1, ...]
-+0.1 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
++0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
-
-+1.0 write(4, ..., 1000) = 1000
++0.0 close(3) = 0
+// Send a user message
++0.0 write(4, ..., 1000) = 1000
+// Verify initial transmission
 +0.0 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 1 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 2 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 3 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 4 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 5 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 6 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 7 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 8 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 9 retransmission
-* > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0] // 10 retransmission
-
-* > sctp: ABORT[flgs=0x00] // expect protocol violation abort message...
+// Verify ten retransmissions
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+*    > sctp: ABORT[flgs=0x00, ...]
+// Check error reported to application
++0.0 getsockopt(4, SOL_SOCKET, SO_ERROR, [ECONNABORTED], [4]) = 0
+// Cleanup
++0.0 close(4) = 0
