@@ -35,11 +35,5 @@
 // inject an INIT-ACK chunk with bundled with a DATA chunk
 +0.0 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=1, STATE_COOKIE[len=4, val=...]];
              DATA[flgs=BE, len=116, tsn=1, sid=0, ssn=0, ppid=0]
-#ifdef FreeBSD
 // FreeBSD just ignores it.
 *    > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
-#endif
-#ifdef Linux
-// Linux responds with an ABORT.
-+0.0 > sctp ABORT[flgs=0x00, PROTOCOL_VIOLATION[info=...]]
-#endif
