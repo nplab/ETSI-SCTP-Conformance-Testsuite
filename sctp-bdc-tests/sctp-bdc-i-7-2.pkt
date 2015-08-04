@@ -41,5 +41,5 @@
 #endif
 #ifdef Linux
 // Linux responds with an ABORT.
-+0.0 > sctp ABORT[flgs=0x00, PROTOCOL_VIOLATION[info=...]]
++0.0 > sctp: ABORT[flgs=0x00, PROTOCOL_VIOLATION[info=...]]
 #endif
