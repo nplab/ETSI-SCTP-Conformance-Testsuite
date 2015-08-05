@@ -19,4 +19,4 @@ The following table show the current status of the Implementation. Once the impl
    See [issue](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/1). Even when that is fixed,
    Note 1 still applies.
 3. It is assumed that the SUT sends a FORWARD-TSN Supported parameter.
-   However, there is on way to enforce this generically. This is a limitation of the specification.
+   However, there is no way to enforce this generically. This is a limitation of the specification.
