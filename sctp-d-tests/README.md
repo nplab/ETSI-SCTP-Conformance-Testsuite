@@ -16,9 +16,10 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-d-v-8-10](sctp-d-v-8-10.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
 |[sctp-d-i-8-11](sctp-d-i-8-11.pkt) | Yes         | Yes       | No         | Passed (Note 1)| Unknown      |
 |[sctp-d-o-8-12](sctp-d-o-8-12.pkt) | Yes         | No        | No         | Unknown        | Unknown      |
-|[sctp-d-v-8-13](sctp-d-v-8-13.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
-|[sctp-d-v-8-14](sctp-d-v-8-14.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
-|[sctp-d-v-8-15](sctp-d-v-8-15.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
+|[sctp-d-v-8-13](sctp-d-v-8-13.pkt) | No (Note 2) | No        | No         | Unknown        | Unknown      |
+|[sctp-d-v-8-14](sctp-d-v-8-14.pkt) | No (Note 2) | No        | No         | Unknown        | Unknown      |
+|[sctp-d-v-8-15](sctp-d-v-8-15.pkt) | No (Note 2) | No        | No         | Unknown        | Unknown      |
 
 ## Notes
 1. Fix for [sctp-d-i-8-11](sctp-d-i-8-11.pkt): [head](https://svnweb.freebsd.org/changeset/base/286206).
+2. Socket layer based implementations don't limit the length of user messages to be received. Therefore the optional test doesn't apply.
