@@ -11,7 +11,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-fh-o-5-3-2](sctp-fh-o-5-3-2.pkt) | Yes (Note 2, 3)| No        | No          | Passed         | Passed          |
 |[sctp-fh-o-5-3-3](sctp-fh-o-5-3-3.pkt) | Yes (Note 2)   | No        | No          | Passed         | Passed          |
 |[sctp-fh-o-5-3-4](sctp-fh-o-5-3-4.pkt) | Yes (Note 2, 4)| No        | No          | Passed         | Passed          |
-|[sctp-fh-o-5-3-5](sctp-fh-o-5-3-5.pkt) | No (Note 5)    | No        | No          | Unknown        | Unknown         |
+|[sctp-fh-o-5-3-5](sctp-fh-o-5-3-5.pkt) | Yes (Note 5)   | No        | No          | Unknown        | Unknown         |
 
 # Notes
 
