@@ -15,7 +15,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-d-v-8-9](sctp-d-v-8-9.pkt)   | No          | No        | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-10](sctp-d-v-8-10.pkt) | Impossible  | No        | No         | Unknown        | Unknown      |
 |[sctp-d-i-8-11](sctp-d-i-8-11.pkt) | Yes         | Yes       | No         | Passed (Note 2)| Passed       |
-|[sctp-d-o-8-12](sctp-d-o-8-12.pkt) | Yes         | No        | No         | Unknown        | Unknown      |
+|[sctp-d-o-8-12](sctp-d-o-8-12.pkt) | Yes         | Yes       | No         | Passed         | Passed       |
 |[sctp-d-v-8-13](sctp-d-v-8-13.pkt) | No (Note 3) | Yes       | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-14](sctp-d-v-8-14.pkt) | No (Note 3) | Yes       | No         | Unknown        | Unknown      |
 |[sctp-d-v-8-15](sctp-d-v-8-15.pkt) | No (Note 3) | Yes       | No         | Unknown        | Unknown      |
