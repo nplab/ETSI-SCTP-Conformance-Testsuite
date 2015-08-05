@@ -34,6 +34,6 @@
 +0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=1, ...]
 // Inject OOTB SHUTDOWN_ACK
 +0.0 < sctp: SHUTDOWN_ACK[flgs=0]
-//Verify the sending of a SHUTDOWN_COMPLETE
+// Verify the sending of a SHUTDOWN_COMPLETE
 +0.0 > sctp: SHUTDOWN_COMPLETE[flgs=T]
 +0.0 close(3) = 0
