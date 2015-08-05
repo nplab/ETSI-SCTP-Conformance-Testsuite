@@ -25,14 +25,17 @@
 // SUCH DAMAGE.
 //
 
+// Create a non-blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
++0.0 fcntl(3, F_GETFL) = 0x2 (flags O_RDWR)
++0.0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) = 0
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
-
-// packetdrill crashes here with coredump, because there was no previous INIT_ACK...
-// TODO: how can one specify an arbritary value?
-+0.1 < sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-
-// TODO: how to check if message above was discarded?
-
+// Get a valid cookie
++0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
++0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=1, ...]
+// Need to send the following from a non-unicast address
++0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
+// Ensure that the message has been discarded
++0.1 accept(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 close(3) = 0
