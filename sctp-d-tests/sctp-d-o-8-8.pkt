@@ -50,10 +50,6 @@
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
 +0.2 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-+0.4 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
-+0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-+0.8 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
-+0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
 // Accept the DATA chunk and open the rwnd
 +0.2 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=1500, gaps=[], dups=[]]
 +0.0 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
