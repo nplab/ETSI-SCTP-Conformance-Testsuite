@@ -37,13 +37,9 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// It is assumed that the MTU is 1500 bytes and IPv4 is used.
-// The overhead is 20 byte IPv4 header, 12 bytes SCTP common header and
-// 16 bytes DATA chunk header.
-// So 1500 - (20 + 12) = 1468 results in a full sized frame.
-+0.0 < sctp: DATA[flgs=B, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
++0.0 < sctp: DATA[flgs=B, len=116, tsn=1, sid=0, ssn=0, ppid=0]
 +0.0 > sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=..., gaps=[], dups=[]]
-+0.0 < sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
-+0.0 < sctp: DATA[flgs=E, len=512, tsn=3, sid=0, ssn=0, ppid=0]
++0.0 < sctp: DATA[flgs=0, len=116, tsn=2, sid=0, ssn=0, ppid=0]
++0.0 < sctp: DATA[flgs=E, len=116, tsn=3, sid=0, ssn=0, ppid=0]
 +0.0 > sctp: SACK[flgs=0, cum_tsn=3, a_rwnd=..., gaps=[], dups=[]]
-+0.0 read(3,..., 4000) = 3400
++0.0 read(3,..., 400) = 300
