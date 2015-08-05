@@ -22,6 +22,6 @@ The following table show the current status of the Implementation. Once the impl
 
 ## Notes
 1. It is assumed that the MTU is 1500 bytes and that IPv4 is used as the network protocol.
-2. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue](https://github.com/nplab/packetdrill/issues/28).
+2. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28).
 3. Fix for [sctp-d-i-8-11](sctp-d-i-8-11.pkt): [head](https://svnweb.freebsd.org/changeset/base/286206).
 4. Socket layer based implementations don't limit the length of user messages to be received. Therefore the optional test doesn't apply.
