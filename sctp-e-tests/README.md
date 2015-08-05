@@ -2,14 +2,14 @@
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
-| Name                            | Implemented  | Finalized | OS specifc | Result FreeBSD | Result Linux |
-|:--------------------------------|:------------:|:---------:|:----------:|:--------------:|:------------:|
-|[sctp-e-o-6-1](sctp-e-o-6-1.pkt) | Yes          | Yes       | No         | Passed         | Passed       |
-|[sctp-e-o-6-2](sctp-e-o-6-2.pkt) | Yes          | Yes       | No         | Passed         | Passed       |
-|[sctp-e-i-6-3](sctp-e-i-6-3.pkt) | Yes          | Yes       | No         | Passed         | Passed       |
-|[sctp-e-i-6-4](sctp-e-i-6-4.pkt) | Yes (Note 1) | Yes       | No         | Unknown        | Unknown      |
-|[sctp-e-i-6-5](sctp-e-i-6-5.pkt) | Yes (Note 2) | Yes       | No         | Passed         | Passed       |
-|[sctp-e-i-6-6](sctp-e-i-6-6.pkt) | Yes (Note 3) | Yes       | No         | Passed         | Passed       |
+| Name                            | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux |
+|:--------------------------------|:------------:|:---------:|:-----------:|:--------------:|:------------:|
+|[sctp-e-o-6-1](sctp-e-o-6-1.pkt) | Yes          | Yes       | No          | Passed         | Passed       |
+|[sctp-e-o-6-2](sctp-e-o-6-2.pkt) | Yes          | Yes       | No          | Passed         | Passed       |
+|[sctp-e-i-6-3](sctp-e-i-6-3.pkt) | Yes          | Yes       | No          | Passed         | Passed       |
+|[sctp-e-i-6-4](sctp-e-i-6-4.pkt) | Yes (Note 1) | Yes       | No          | Unknown        | Unknown      |
+|[sctp-e-i-6-5](sctp-e-i-6-5.pkt) | Yes (Note 2) | Yes       | No          | Passed         | Passed       |
+|[sctp-e-i-6-6](sctp-e-i-6-6.pkt) | Yes (Note 3) | Yes       | No          | Passed         | Passed       |
 
 # Notes
 1. It is not clear whether the padding is a cause padding or a chunk padding.
