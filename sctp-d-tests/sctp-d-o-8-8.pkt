@@ -25,8 +25,10 @@
 // SUCH DAMAGE.
 //
 
+--tolerance_usecs=50000
+
 // Create a non-blocking 1-to-1 style socket
-0.0  socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
+ 0.0  socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=800, srto_min=100}, 16) = 0
@@ -40,21 +42,21 @@
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Send Data, answer with SACK and a_rwnd = 0
 +0.0 write(3, ..., 3000) = 3000
-*    > sctp: DATA[flgs=B, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
++0.0 > sctp: DATA[flgs=B, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
++0.0 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
++0.1 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
++0.2 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
++0.4 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
++0.8 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=0, gaps=[], dups=[]]
-//open the rwnd that the sut can send outstanding data, Wait to ensure that no data will be send
+// Accept the DATA chunk and open the rwnd
 +0.2 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=1500, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
++0.0 > sctp: DATA[flgs=0, len=1468, tsn=2, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=2, a_rwnd=1500, gaps=[], dups=[]]
-*    > sctp: DATA[flgs=E, len=112, tsn=3, sid=0, ssn=0, ppid=0]
++0.0 > sctp: DATA[flgs=E, len=112, tsn=3, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=3, a_rwnd=1500, gaps=[], dups=[]]
