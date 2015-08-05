@@ -31,6 +31,7 @@
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
++0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=800, srto_min=100}, 16) = 0
 // Trigger the active associtation setup
 +0.0 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
@@ -42,7 +43,7 @@
 // Send the first message and trigger a timeout
 +0.0 write(3, ..., 1452) = 1452
 +0.0 > sctp: DATA[flgs=BE, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
-+1.0 > sctp: DATA[flgs=BE, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
++0.1 > sctp: DATA[flgs=BE, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
 +0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=5000, gaps=[], dups=[]]
 // Now cwnd is 1500
 // Send the second message, which doesn't get SACKed by the peer
@@ -52,7 +53,7 @@
 +0.0 write(3, ..., 1452) = 1452
 +0.0 > sctp: DATA[flgs=BE, len=1468, tsn=3, sid=0, ssn=2, ppid=0]
 // Inject a SACK, now cwnd is about 3000
-+0.1 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=5000, gaps=[2:2], dups=[]]
++0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=5000, gaps=[2:2], dups=[]]
 // Send the fourth message
 +0.0 write(3, ..., 1452) = 1452
 +0.0 > sctp: DATA[flgs=BE, len=1468, tsn=4, sid=0, ssn=3, ppid=0]
@@ -60,4 +61,4 @@
 +0.0 write(3, ..., 1452) = 1452
 // Now the T3 timeout happens. Make sure that the third message is retransmitted
 // and not the unsent fifth message.
-+1.9 > sctp: DATA[flgs=BE, len=1468, tsn=2, sid=0, ssn=1, ppid=0]
++0.2 > sctp: DATA[flgs=BE, len=1468, tsn=2, sid=0, ssn=1, ppid=0]
