@@ -41,6 +41,6 @@
 // Inject an INIT chunk
 +0.0 < sctp: INIT[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=1]
 // Check that the SHUTDOWN_ACK is retransmitted
-+1.0 > sctp: SHUTDOWN_ACK[flgs=0]
++0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
