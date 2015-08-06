@@ -12,7 +12,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-d-o-8-6](sctp-d-o-8-6.pkt)   | Yes         | Yes        | No          | Passed         | Passed       |
 |[sctp-d-o-8-7](sctp-d-o-8-7.pkt)   | Yes         | No (Note 2)| No          | Passed         | Passed       |
 |[sctp-d-o-8-8](sctp-d-o-8-8.pkt)   | Yes         | No (Note 2)| No          | Passed         | Passed       |
-|[sctp-d-v-8-9](sctp-d-v-8-9.pkt)   | No          | No         | No          | Unknown        | Unknown      |
+|[sctp-d-v-8-9](sctp-d-v-8-9.pkt)   | Yes         | No (Note 2)| No          | Passed         | Passed       |
 |[sctp-d-v-8-10](sctp-d-v-8-10.pkt) | Yes         | No (Note 3)| No          | Unknown        | Unknown      |
 |[sctp-d-i-8-11](sctp-d-i-8-11.pkt) | Yes         | Yes        | No          | Passed (Note 4)| Passed       |
 |[sctp-d-o-8-12](sctp-d-o-8-12.pkt) | Yes         | Yes        | No          | Passed         | Passed       |
