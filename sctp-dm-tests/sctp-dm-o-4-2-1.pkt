@@ -25,6 +25,7 @@
 // SUCH DAMAGE.
 //
 
+// Setup a connected, blocking 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 // Check the handshake with en empty(!) cookie
 +0.0 bind(3, ..., ...) = 0
@@ -34,13 +35,15 @@
 +0.1 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
-
-+1.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
+//+0.0 close(3) = 0
+// Inject an INIT chunk
++0.1 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1]
 +0.0 > sctp: INIT_ACK[flgs=0, tag=..., a_rwnd=..., os=..., is=..., tsn=..., ...]
-
+// Verify that the association is still intact
++0.1 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=12, val=...]]
++0.0 > sctp: HEARTBEAT_ACK[flgs=0, HEARTBEAT_INFORMATION[len=12, val=...]]
 // Tear down the association
 +1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
-+0.0 close(3) = 0
