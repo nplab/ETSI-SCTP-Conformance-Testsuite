@@ -26,7 +26,7 @@
 //
 
 // Create a non-blocking 1-to-1 style socket
-0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
+ 0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=800, srto_min=100}, 16) = 0
@@ -38,6 +38,6 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// SUT gets DATA Chunk with no userdata 
+// SUT gets DATA Chunk with no userdata
 +0.0 < sctp: DATA[flgs=BE, len=16, tsn=1, sid=0, ssn=0, ppid=0]
 +0.0 > sctp: ABORT[flgs=0, NO_USER_DATA[tsn=1]]
