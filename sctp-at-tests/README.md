@@ -6,7 +6,7 @@ The following table show the current status of the Implementation. Once the impl
 |:--------------------------------------|:-----------:|:---------:|:-----------:|:--------------:|:------------:|
 |[sctp-at-v-2-2](sctp-at-v-2-2.pkt)     | Yes         | Yes       | No          | Passed         | Passed       |
 |[sctp-at-i-2-3](sctp-at-i-2-3.pkt)     | Yes         | Yes       | No          | Passed         | Passed       |
-|[sctp-at-i-2-4](sctp-at-i-2-4.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
+|[sctp-at-i-2-4](sctp-at-i-2-4.pkt)     | Yes         | Yes       | No          | Passed         | Passed       |
 |[sctp-at-i-2-5](sctp-at-i-2-5.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
 |[sctp-at-v-2-6](sctp-at-v-2-6.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
 |[sctp-at-i-2-7-1](sctp-at-i-2-7-1.pkt) | Yes         | No        | No          | Unknown        | Unknown      |
