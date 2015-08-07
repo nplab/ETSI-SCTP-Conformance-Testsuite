@@ -40,7 +40,7 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Trigger the grace shutdown procedure
+// Trigger the graceful shutdown procedure
 +0.0 shutdown(3, SHUT_WR) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Try to send user data
