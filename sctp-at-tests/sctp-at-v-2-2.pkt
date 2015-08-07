@@ -36,8 +36,10 @@
 +0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
+// Abort the association
 +0.0 < sctp: ABORT[flgs=0]
-// Send One Packet but Association shoult be broken
+// Verify that the association is gone via the socket layer
++0.1 getsockopt(3, SOL_SOCKET, SO_ERROR, [ECONNRESET], [4]) = 0
+// Verify that the association is gone via the protocol layer
 +0.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
-// SUT should answer with abort
-*    > sctp: ABORT[flgs=T] 
++0.0 > sctp: ABORT[flgs=T]
