@@ -38,8 +38,14 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// SHUTDOWN Association for writing
+// Trigger the grace shutdown procedure
 +0.0 shutdown(3, SHUT_WR) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-//Ensure that no data will be send after Shutdown is send
-+0.0 write(3, ...,1000) = -1
+// Try to send user data
++0.0 write(3, ...,1000) = -1 EPIPE (Broken pipe)
+// Ensure that the user data isn't sent on the wire by waiting for a retransmission
+// of the SHUTDOWN chunk
++0.1 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 < sctp: SHUTDOWN_ACK[flgs=0x00]
++0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0x00]
+
