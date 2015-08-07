@@ -40,6 +40,6 @@
 // Inject a DATA chunk
 +0.2 < sctp: DATA[flgs=BE, len=1016, tsn=2, sid=0, ssn=0, ppid=0]
 // Observe a timer based retransmission of the SHUTDOWN-ACK chunk
-+0.8 > sctp: SHUTDOWN_ACK[flgs=0]
+*    > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
