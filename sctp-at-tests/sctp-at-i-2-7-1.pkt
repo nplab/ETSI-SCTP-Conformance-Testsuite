@@ -25,6 +25,8 @@
 // SUCH DAMAGE.
 //
 
+--tolerance_usecs=50000
+
 // Create a non-blocking 1-to-1 style socket
 0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
@@ -42,7 +44,8 @@
 +0.0 shutdown(3, SHUT_WR) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Try to send user data
-+0.0 write(3, ...,1000) = -1 EPIPE (Broken pipe)
++0.0 write(3, ...,1000) = -1 // EPIPE (Broken pipe) on FreeBSD
+                             // ESHUTDOWN (Cannot send after transport endpoint shutdown) on Linux
 // Ensure that the user data isn't sent on the wire by waiting for a retransmission
 // of the SHUTDOWN chunk
 +0.1 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
