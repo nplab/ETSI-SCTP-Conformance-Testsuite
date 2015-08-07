@@ -38,9 +38,12 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Receive Shutdown,Send ACK and get COMPLETE Test that Assoc is removed
+// The peer triggers a graceful association teardown
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
-+0.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
+// Check at the socket layer that the association is gone
++0.1 read(3, ..., 100) = 0
+// Check at the protocol layer that the association is gone
++0.1 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=9, val=...]]
 +0.0 > sctp: ABORT[flgs=T]
