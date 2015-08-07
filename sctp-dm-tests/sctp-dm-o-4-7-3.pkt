@@ -25,6 +25,7 @@
 // SUCH DAMAGE.
 //
 
+// setup a blocking connected 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
@@ -33,13 +34,12 @@
 +0.1 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
-
++0.0 close(3) = 0
 // Tear down the association
 +1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
-// inject shutdown_ack message after receiving shutdown_ack
+// Inject a SHUTDOWN-ACK chunk
 +0.1 < sctp: SHUTDOWN_ACK[flgs=0]
-// expect correct shutdown_complete message...
+// Observe a SHUTDOWN-COMPLETE chunk
 +0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
-+0.0 close(3) = 0

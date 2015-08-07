@@ -25,6 +25,7 @@
 // SUCH DAMAGE.
 //
 
+// Create a non-blocking connected 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x2 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) = 0
@@ -34,18 +35,13 @@
 +0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
 +0.1 < sctp: COOKIE_ACK[flgs=0]
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-
-// send shutdown_ack with correct (?) verification tag in established state...
+// Inject SHUTDOWN-ACK
 +0.1 < sctp: SHUTDOWN_ACK[flgs=0]
-// still no error at socket?
-+0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-
-// TODO: check for abort message?
-
-// inject heartbeat to see if association is still active
-+1.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
-* > sctp: HEARTBEAT_ACK[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
-
+// Anu error pending at the socket layer?
++0.1 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
+// Verify the association is still intact
++1.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=10, val=...]]
++0.0 > sctp: HEARTBEAT_ACK[flgs=0, HEARTBEAT_INFORMATION[len=10, val=...]]
 // Tear down the association
 +0.0 close(3) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
