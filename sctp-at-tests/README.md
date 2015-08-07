@@ -23,11 +23,11 @@ The following table show the current status of the Implementation. Once the impl
 
 # Notes
 
-1. It is assumed that the shutdown-guard timer is 5 * RTO_MAX. This is currently not the case for FreeBSD resulting in a test failure (Even if that is not explicitly described in the test purpose). This issue is tracked in [issue](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/6).
+1. It is assumed that the shutdown-guard timer is 5 * RTO_MAX. This is currently not the case for FreeBSD resulting in a test failure (Even if that is not explicitly described in the test purpose). This issue is tracked in [issue 6](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/6).
 2. Once the association has been terminated on a connected non-blocking 1-to-1 style socket, read() returns -1 indicating "Resource temporarily unavailable" instead of 0. See Note 6 on [README](https://github.com/nplab/ETSI-SCTP-Conformance-Testsuite/blob/master/sctp-bdc-tests/README.md).
 3. When calling write() after shutdown(, SHUT_WR), Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 4. When the association is in SHUTDOWN-RECEIVED state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
-5. Two bundled SHUTDOWN_ACK chunks are sent. This is tracked in [issue](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/7).
+5. Two bundled SHUTDOWN_ACK chunks are sent. This is tracked in [issue 7](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/7).
 6. When the association is in SHUTDOWN-PENDING state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 7. When the association is in SHUTDOWN-ACK-SENT state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 8. I is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
