@@ -18,7 +18,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-at-i-2-10](sctp-at-i-2-10.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
 |[sctp-at-i-2-11](sctp-at-i-2-11.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
 |[sctp-at-i-2-12](sctp-at-i-2-12.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
-|[sctp-at-i-2-13](sctp-at-i-2-13.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
+|[sctp-at-i-2-13](sctp-at-i-2-13.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
 |[sctp-at-v-2-14](sctp-at-v-2-14.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
 
 # Notes
