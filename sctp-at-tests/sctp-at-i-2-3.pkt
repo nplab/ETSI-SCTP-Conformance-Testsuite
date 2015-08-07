@@ -38,10 +38,13 @@
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Date send to Tester.
-+1.0 write(3, ..., 1000) = 1000
++0.1 write(3, ..., 1000) = 1000
 +0.0 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
-+0.0 close(3) = 0
++0.0 shutdown(3, SHUT_WR) = 0
 //Close process after SACK
 +0.1 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=1500, gaps=[], dups=[]]
 //Send Shutdown after get all ACKs
-*    > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 < sctp: SHUTDOWN_ACK[flgs=0]
++0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0]
++0.0 close(3) = 0
