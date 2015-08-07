@@ -5,7 +5,7 @@ The following table show the current status of the Implementation. Once the impl
 | Name                                  | Implemented | Finalized | OS specific | Result FreeBSD | Result Linux |
 |:--------------------------------------|:-----------:|:---------:|:-----------:|:--------------:|:------------:|
 |[sctp-at-v-2-2](sctp-at-v-2-2.pkt)     | Yes         | Yes       | No          | Passed         | Passed       |
-|[sctp-at-i-2-3](sctp-at-i-2-3.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
+|[sctp-at-i-2-3](sctp-at-i-2-3.pkt)     | Yes         | Yes       | No          | Passed         | Passed       |
 |[sctp-at-i-2-4](sctp-at-i-2-4.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
 |[sctp-at-i-2-5](sctp-at-i-2-5.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
 |[sctp-at-v-2-6](sctp-at-v-2-6.pkt)     | Yes         | No        | No          | Unknown        | Unknown      |
