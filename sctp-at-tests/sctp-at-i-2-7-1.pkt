@@ -44,7 +44,7 @@
 +0.0 shutdown(3, SHUT_WR) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Try to send user data
-+0.0 write(3, ...,1000) = -1 // EPIPE (Broken pipe) on FreeBSD
++0.0 write(3, ...,1000) = -1 // ECONNRESET (Connection reset by peer) on FreeBSD
                              // ESHUTDOWN (Cannot send after transport endpoint shutdown) on Linux
 // Ensure that the user data isn't sent on the wire by waiting for a retransmission
 // of the SHUTDOWN chunk
