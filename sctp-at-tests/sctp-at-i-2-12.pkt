@@ -25,8 +25,9 @@
 // SUCH DAMAGE.
 //
 
+--tolerance_usecs=75000
+
 // Create a non-blocking 1-to-1 style socket
-0.0 `sysctl -w net.inet.sctp.assoc_rtx_max=3`
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
@@ -41,9 +42,20 @@
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Ensure that after max rtt for Shutdown_ack, SUT discard the association
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-*    > sctp: SHUTDOWN_ACK[flgs=0]
-*    > sctp: SHUTDOWN_ACK[flgs=0]
-*    > sctp: SHUTDOWN_ACK[flgs=0]
-*    > sctp: SHUTDOWN_ACK[flgs=0]
-*    > sctp: ABORT[flgs=0, ...]
-+0.0 `sysctl -w net.inet.sctp.assoc_rtx_max=8`
+// Observe the initial transmission of the SHUTDOWN_ACK chunk
++0.0 > sctp: SHUTDOWN_ACK[flgs=0]
+// Seven timer based retransmissions should happen
++0.1 > sctp: SHUTDOWN_ACK[flgs=0]
++0.2 > sctp: SHUTDOWN_ACK[flgs=0]
++0.4 > sctp: SHUTDOWN_ACK[flgs=0]
++0.8 > sctp: SHUTDOWN_ACK[flgs=0]
++0.8 > sctp: SHUTDOWN_ACK[flgs=0]
++0.8 > sctp: SHUTDOWN_ACK[flgs=0]
++0.8 > sctp: SHUTDOWN_ACK[flgs=0]
+// Since the SHUTDOWN-GUARD timer should be 5 * RTO_MAX, no further retransmissions should happen
++0.1 > sctp: ABORT[flgs=0, ...]
+// Check at the socket layer that the association is gone
++0.1 getsockopt(3, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0
+// Check at the protocol layer that the association is gone
++0.1 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=9, val=...]]
++0.0 > sctp: ABORT[flgs=T]
