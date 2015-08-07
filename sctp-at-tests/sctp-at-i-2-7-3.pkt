@@ -38,7 +38,18 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-+0.0 shutdown(3, SHUT_RDWR) = 0
-//send Data in State Shutdown pending and then try to send some data
-+0.0 write(3, ...,1000) = -1
+// Ensure there is data in flight
++0.0 write(3, ...,1000) = 1000
++0.0 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+// Trigger the graceful shutdown procedure
++0.0 shutdown(3, SHUT_WR) = 0
+// Now the SUT is in SHUTDOWN-PENDING state
+// Try to send user data
++0.0 write(3, ...,1000) = -1 // ECONNRESET (Connection reset by peer) on FreeBSD
+                             // ESHUTDOWN (Cannot send after transport endpoint shutdown) on Linux
+// Ensure that the user data isn't sent on the wire by waiting for a retransmission
+// of the SHUTDOWN chunk
++0.0 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=1500, gaps=[], dups=[]]
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 < sctp: SHUTDOWN_ACK[flgs=0x00]
++0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0x00]
