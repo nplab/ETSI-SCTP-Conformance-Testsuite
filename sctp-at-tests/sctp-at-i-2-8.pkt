@@ -44,11 +44,13 @@
 +0.0 shutdown(3, SHUT_WR) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 < sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
-+0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=1]
++0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=1];
+             SACK[flgs=0x00, cum_tsn=1, a_rwnd=..., gaps=[], dups=[]]
 +0.0 read(3, ..., 2000) = 1000
 +0.0 < sctp: DATA[flgs=BE, len=1016, tsn=2, sid=0, ssn=1, ppid=0]
 +0.0 read(3, ..., 2000) = 1000
-+0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=2]
++0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=2];
+             SACK[flgs=0x00, cum_tsn=2, a_rwnd=..., gaps=[], dups=[]]
 // Ensure T2 is still running
 +0.1 > sctp: SHUTDOWN[flgs=0, cum_tsn=2]
 +0.0 < sctp: SHUTDOWN_ACK[flgs=0x00]
