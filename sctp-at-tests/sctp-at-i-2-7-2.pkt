@@ -44,7 +44,8 @@
 // Inject a SHUTDOWN chunk, now the SUT is in SHUTDOWN-RECEIVED
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Sending a user message is not allowed anymore
-+0.0 write(3, ...,1000) = -1 ESHUTDOWN (Cannot send after transport endpoint shutdown)//ECONNRESET (Connection reset by peer) on FreeBSD
++0.0 write(3, ...,1000) = -1 // ECONNRESET (Connection reset by peer) on FreeBSD
+                             // ESHUTDOWN (Cannot send after transport endpoint shutdown) on Linux
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=1]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0x00]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0x00]
