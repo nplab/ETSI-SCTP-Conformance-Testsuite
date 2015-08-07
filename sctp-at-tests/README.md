@@ -2,24 +2,24 @@
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
-| Name                                  | Implemented | Finalized | OS specific | Result FreeBSD | Result Linux   |
-|:--------------------------------------|:-----------:|:---------:|:-----------:|:--------------:|:--------------:|
-|[sctp-at-v-2-2](sctp-at-v-2-2.pkt)     | Yes         | Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-3](sctp-at-i-2-3.pkt)     | Yes         | Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-4](sctp-at-i-2-4.pkt)     | Yes         | Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-5](sctp-at-i-2-5.pkt)     | Yes         | Yes       | No          | Failed (Note 1)| Passed         |
-|[sctp-at-v-2-6](sctp-at-v-2-6.pkt)     | Yes         | Yes       | No          | Passed         | Failed (Note 2)|
-|[sctp-at-i-2-7-1](sctp-at-i-2-7-1.pkt) | Yes (Note 3)| Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-7-2](sctp-at-i-2-7-2.pkt) | Yes (Note 4)| Yes       | No          | Failed (Note 5)| Passed         |
-|[sctp-at-i-2-7-3](sctp-at-i-2-7-3.pkt) | Yes (Note 6)| Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-7-4](sctp-at-i-2-7-4.pkt) | Yes         | No        | No          | Unknown        | Unknown        |
-|[sctp-at-i-2-8](sctp-at-i-2-8.pkt)     | Yes (Note 7)| Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-9](sctp-at-i-2-9.pkt)     | Yes (Note 8)| Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-10](sctp-at-i-2-10.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-11](sctp-at-i-2-11.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-12](sctp-at-i-2-12.pkt)   | Yes (Note 9)| Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-13](sctp-at-i-2-13.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
-|[sctp-at-v-2-14](sctp-at-v-2-14.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
+| Name                                  | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux   |
+|:--------------------------------------|:------------:|:---------:|:-----------:|:--------------:|:--------------:|
+|[sctp-at-v-2-2](sctp-at-v-2-2.pkt)     | Yes          | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-3](sctp-at-i-2-3.pkt)     | Yes          | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-4](sctp-at-i-2-4.pkt)     | Yes          | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-5](sctp-at-i-2-5.pkt)     | Yes          | Yes       | No          | Failed (Note 1)| Passed         |
+|[sctp-at-v-2-6](sctp-at-v-2-6.pkt)     | Yes          | Yes       | No          | Passed         | Failed (Note 2)|
+|[sctp-at-i-2-7-1](sctp-at-i-2-7-1.pkt) | Yes (Note 3) | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-7-2](sctp-at-i-2-7-2.pkt) | Yes (Note 4) | Yes       | No          | Failed (Note 5)| Passed         |
+|[sctp-at-i-2-7-3](sctp-at-i-2-7-3.pkt) | Yes (Note 6) | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-7-4](sctp-at-i-2-7-4.pkt) | Yes (Note 7) | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-8](sctp-at-i-2-8.pkt)     | Yes (Note 8) | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-9](sctp-at-i-2-9.pkt)     | Yes (Note 9) | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-10](sctp-at-i-2-10.pkt)   | Yes          | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-11](sctp-at-i-2-11.pkt)   | Yes          | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-12](sctp-at-i-2-12.pkt)   | Yes (Note 10)| Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-13](sctp-at-i-2-13.pkt)   | Yes          | Yes       | No          | Passed         | Passed         |
+|[sctp-at-v-2-14](sctp-at-v-2-14.pkt)   | Yes          | Yes       | No          | Passed         | Passed         |
 
 # Notes
 
@@ -29,6 +29,7 @@ The following table show the current status of the Implementation. Once the impl
 4. When the association is in SHUTDOWN-RECEIVED state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 5. Two bundled SHUTDOWN_ACK chunks are sent.
 6. When the association is in SHUTDOWN-PENDING state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
-7. I is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
-8. Not sure where it is specified that DATA chunks after SHUTDOWN chunk needs to be discarded. Looks like a protocol violation to me.
-9. After more than Max.Assoc.Retrans retranmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT.
+7. When the association is in SHUTDOWN-ACK-SENT state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
+8. I is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
+9. Not sure where it is specified that DATA chunks after SHUTDOWN chunk needs to be discarded. Looks like a protocol violation to me.
+10. After more than Max.Assoc.Retrans retranmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT.
