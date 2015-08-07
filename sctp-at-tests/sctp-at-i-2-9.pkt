@@ -38,12 +38,15 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Receive Shutdown and then receive Data and discard Data
+// Ensure there is outstanding data
 +0.0 write(3, ..., 1000) = 1000
 +0.0 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+// Inject a SHUTDOWN chunk followed by a DATA chunk.
+// XXX MT: Looks like a violation of a SHOULD to me
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-//ensure that SUT ignores the Data which is received in SHUTDOWN_received state
-+0.1 < sctp: DATA[flgs=BE, len=1016, tsn=2, sid=0, ssn=1, ppid=0]
++0.1 < sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=1, ppid=0]
 //Ensure that after receiving the ACK for outstanding data, sends the SHUTDOWN_ACK
 +0.1 < sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=1500, gaps=[], dups=[]]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
++0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
++0.0 read(3, ..., 1000) = 0
