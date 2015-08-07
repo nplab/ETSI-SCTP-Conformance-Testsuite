@@ -37,7 +37,7 @@
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Inject SHUTDOWN-ACK
 +0.1 < sctp: SHUTDOWN_ACK[flgs=0]
-// Anu error pending at the socket layer?
+// Any error pending at the socket layer?
 +0.1 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Verify the association is still intact
 +1.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=10, val=...]]
