@@ -41,7 +41,7 @@
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Close association
-+0.0 close(3) = 0
++0.0 shutdown(3, SHUT_WR) = 0
 // Observe the initial transmission of the SHUTDOWN chunk
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Seven timer based retransmissions should happen
@@ -54,5 +54,6 @@
 +0.8 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Since the SHUTDOWN-GUARD timer should be 5 * RTO_MAX, no further retransmissions should happen
 +0.1 > sctp: ABORT[flgs=0, ...]
++0.1 getsockopt(3, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0
 +0.1 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=9, val=...]]
 +0.0 > sctp: ABORT[flgs=T]
