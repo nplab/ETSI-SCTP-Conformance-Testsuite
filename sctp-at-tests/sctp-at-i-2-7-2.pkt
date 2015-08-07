@@ -38,8 +38,13 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Receive Shutdown and after that try to send DATA.
+// Ensure there is data in flight
++0.0 write(3, ...,1000) = 1000
++0.0 > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
+// Inject a SHUTDOWN chunk, now the SUT is in SHUTDOWN-RECEIVED
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-//Test that no Data will be send in State Shutdown_received
-+0.0 write(3, ...,1000) = -1
-
+// Sending a user message is not allowed anymore
++0.0 write(3, ...,1000) = -1 ESHUTDOWN (Cannot send after transport endpoint shutdown)//ECONNRESET (Connection reset by peer) on FreeBSD
++0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=1]
++0.0 > sctp: SHUTDOWN_ACK[flgs=0x00]
++0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0x00]
