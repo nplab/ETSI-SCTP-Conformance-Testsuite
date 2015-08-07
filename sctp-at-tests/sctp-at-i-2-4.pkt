@@ -25,6 +25,8 @@
 // SUCH DAMAGE.
 //
 
+--tolerance_usecs=10000
+
 // Create a non-blocking 1-to-1 style socket
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
@@ -41,5 +43,5 @@
 //Close Association
 +0.0 close(3) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-//Test Retransmit
-+0.1~+0.2 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
+// Ensure that a retransmission is sent
++0.1 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
