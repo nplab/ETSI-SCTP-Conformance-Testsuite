@@ -25,6 +25,8 @@
 // SUCH DAMAGE.
 //
 
+--tolerance_usecs=10000
+
 // Create a non-blocking 1-to-1 style socket
 0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
@@ -38,8 +40,12 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
+// Inject a SHUTDOWN chunk
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
+// Now the SUT is in SHUTDOWN-ACK-SENT state
 //Test that no Data will be send in State Shutdown_ack_send
-+0.0 write(3, ..., 1000) = -1
++0.0 write(3, ..., 1000) = -1 // ECONNRESET (Connection reset by peer) on FreeBSD
+                              // ESHUTDOWN (Cannot send after transport endpoint shutdown) on Linux
++0.1 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
