@@ -55,5 +55,3 @@
 +0.1 > sctp: SHUTDOWN[flgs=0, cum_tsn=2]
 +0.0 < sctp: SHUTDOWN_ACK[flgs=0x00]
 +0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0x00]
-+0.0 read(3, ..., 2000) = 0
-
