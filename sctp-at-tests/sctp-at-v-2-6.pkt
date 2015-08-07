@@ -38,11 +38,13 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Ensure that after shutdown is send, the SUT sends Shutdown Complete after getting Shutdown ack
-+0.0 close(3) = 0
-*    > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
+// Trigger the association teardown
++0.0 shutdown(3, SHUT_WR) = 0
++0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 < sctp: SHUTDOWN_ACK[flgs=0]
-*    > sctp: SHUTDOWN_COMPLETE[flgs=0]
-//Ensure that the Assosciation is terminatet
-+0.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=..., val=...]]
-*    > sctp: ABORT[flgs=T]
++0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0]
+// Ensure at the socket layer that the association has been terminated
++0.2 read(3, ..., 100) = 0
+//Ensure at the protocol layer that the association has been terminated
++0.0 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=9, val=...]]
++0.0 > sctp: ABORT[flgs=T]
