@@ -26,6 +26,7 @@
 //
 
 --tolerance_usecs=75000
+
 // Create a non-blocking 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
@@ -43,7 +44,7 @@
 +0.0 close(3) = 0
 // Observe the initial transmission of the SHUTDOWN chunk
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
-//
+// Seven timer based retransmissions should happen
 +0.1 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.2 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.4 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
@@ -53,3 +54,5 @@
 +0.8 > sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // Since the SHUTDOWN-GUARD timer should be 5 * RTO_MAX, no further retransmissions should happen
 +0.1 > sctp: ABORT[flgs=0, ...]
++0.1 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=9, val=...]]
++0.0 > sctp: ABORT[flgs=T]
