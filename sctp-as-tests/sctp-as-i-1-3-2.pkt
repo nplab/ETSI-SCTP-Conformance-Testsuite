@@ -49,7 +49,7 @@
 +0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
 +0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
 +0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-+0.8 > sctp: ABORT[flgs=0,...]
+// FreeBSD sends an ABORT finallly
 // Check at the socket layer that the association setup failed
 +1.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0
 
