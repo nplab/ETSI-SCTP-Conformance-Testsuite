@@ -25,34 +25,32 @@
 // SUCH DAMAGE.
 //
 
+--tolerance_usecs=75000
+
 // Create a non-blocking 1-to-1 style socket
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-
-// adjust initial rto to 200ms to avoid long runtime of script
-+0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=200, srto_max=200, srto_min=50}, 16) = 0
-+0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=0, sinit_max_instreams=0, sinit_max_attempts=8, sinit_max_init_timeo=200}, 8) = 0
-
++0.0 bind(3, ..., ...) = 0
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
++0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=800, srto_min=100}, 16) = 0
+// Linux doesn't apply srto_max for INIT retransmissions
+//+0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=0, sinit_max_instreams=0, sinit_max_attempts=0, sinit_max_init_timeo=800}, 8) = 0
 // Trigger the active associtation setup
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
 +0.0 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=3, STATE_COOKIE[len=4, val=...]]
 +0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-
-// Do not send ACK, but wait for 8 retransmissions of ECHO
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-* > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
-
-* > sctp: ABORT[flgs=0,...]
-
-// Make sure the socket is in timeout state
-+0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0
+// Check for 8 retransmissions
++0.1 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.2 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.4 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.8 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.8 > sctp: ABORT[flgs=0,...]
+// Check at the socket layer that the association setup failed
++1.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0
 
 
