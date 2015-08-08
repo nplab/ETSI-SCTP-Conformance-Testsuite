@@ -10,9 +10,9 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt)   | Yes         | Yes       | No          | Passed         | Passed         |
 |[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt)   | Yes         | Yes       | No          | Passed         | Failed (Note 1)|
 |[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt)   | Yes         | Yes       | No          | Passed         | Failed (Note 2)|
-|[sctp-as-i-1-4](sctp-as-i-1-4.pkt)       | Impossible  | No        | No          | Unknown        | Unknown        |
-|[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt)   | Impossible  | No        | No          | Unknown        | Unknown        |
-|[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt)   | Impossible  | No        | No          | Unknown        | Unknown        |
+|[sctp-as-i-1-4](sctp-as-i-1-4.pkt)       | No (Note 3) | Yes       | No          | Unknown        | Unknown        |
+|[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt)   | No (Note 4) | Yes       | No          | Unknown        | Unknown        |
+|[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt)   | No (Note 4) | Yes       | No          | Unknown        | Unknown        |
 |[sctp-as-v-1-6-1](sctp-as-v-1-6-1.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
 |[sctp-as-v-1-6-2](sctp-as-v-1-6-2.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
 |[sctp-as-v-1-7-1](sctp-as-v-1-7-1.pkt)   | Almost      | No        | No          | Unknown        | Unknown        |
@@ -42,3 +42,5 @@ The following table show the current status of the Implementation. Once the impl
 
 1. Linux doesn't apply the limit srto_max given in the SCTP_RTOINFO socket option to the retransmissions of INITs. An additional use of the SCTP_INITMSG socket option is required. Except for that, the test case is OK.
 2. Linux doesn't apply the limit srto_max given in the SCTP_RTOINFO socket option to the retransmissions of COOKIE_ECHOs. An additional use of the SCTP_INITMSG socket option is required. Except for that, the test case is OK.
+3. There is no way in the socket API to limit the number of SCTP associations. Therefore this test is not applicable. It shouldn't be mandatory...
+4. packetdrill does not provide an infrastructure for testing the randomness of the choosen initiate tags. Therefore these tests can't be realized with packetdrill.
