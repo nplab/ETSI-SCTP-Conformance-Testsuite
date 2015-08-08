@@ -30,6 +30,5 @@
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
 +0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=0, is=1, tsn=0]
-
-* > sctp: ABORT[flgs=0x00, ...]
++0.0 > sctp: ABORT[flgs=0x00, INVALID_MANDATORY_PARAMETER[]]
 
