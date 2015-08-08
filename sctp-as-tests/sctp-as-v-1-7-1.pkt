@@ -27,9 +27,7 @@
 
 // Create a blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-
-+0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=100, sinit_max_instreams=1, sinit_max_attempts=5, sinit_max_init_timeo=100}, 8) = 0
-
++0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=2, sinit_max_instreams=0, sinit_max_attempts=0, sinit_max_init_timeo=0}, 8) = 0
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
 +0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=100, is=1, tsn=0]
@@ -37,13 +35,14 @@
 +0.1 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
-
-// TODO: Check the number of selected Inbound- / Outbound- Streams
-
-
++0.0 close(3) = 0
+// Verify that the is only one outgoing stream via a socket option
+// Use getsockopt with SCTP_STATUS and check for sstat_outstrms = 1
+// Verify that the is only one outgoing stream via a send call
+// sctp_sendmsg on stream 0
+// sctp_sendmsg on stream 1
 // Tear down the association
-+1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=T]
 +0.0 close(4) = 0
-+0.0 close(3) = 0
