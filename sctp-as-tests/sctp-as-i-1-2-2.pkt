@@ -47,7 +47,7 @@
 // Tear down the association
 +0.0 close(3) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=1]
-+0.1 < sctp: SHUTDOWN_ACK[flgs=0]
++0.0 < sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 > sctp: SHUTDOWN_COMPLETE[flgs=0]
 
 
