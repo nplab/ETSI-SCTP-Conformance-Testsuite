@@ -33,7 +33,8 @@
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=800, srto_min=100}, 16) = 0
-//+0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=0, sinit_max_instreams=0, sinit_max_attempts=0, sinit_max_init_timeo=200}, 8) = 0
+// Linux doesn't apply srto_max for INIT retransmissions
+//+0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=0, sinit_max_instreams=0, sinit_max_attempts=0, sinit_max_init_timeo=800}, 8) = 0
 // Trigger the active associtation setup
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
