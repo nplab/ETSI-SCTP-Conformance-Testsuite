@@ -33,4 +33,4 @@
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
 +0.0 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=0, is=1, tsn=3, STATE_COOKIE[len=4, val=...]]
-+0.0 > sctp: ABORT[flgs=0x00, INVALID_MANDATORY_PARAMETER[]]
++0.0 > sctp: ABORT[flgs=..., INVALID_MANDATORY_PARAMETER[]]
