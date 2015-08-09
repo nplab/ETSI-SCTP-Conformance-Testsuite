@@ -31,7 +31,7 @@
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=2, sinit_max_instreams=1, sinit_max_attempts=0, sinit_max_init_timeo=0}, 8) = 0
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
-// Trigger the active associtation setup
+// Trigger the active association setup
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=2, is=1, tsn=0, ...]
 +0.0 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=3, STATE_COOKIE[len=4, val=...]]

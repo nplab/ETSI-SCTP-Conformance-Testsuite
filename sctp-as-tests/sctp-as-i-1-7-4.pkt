@@ -27,14 +27,10 @@
 
 // Create a non-blocking 1-to-1 style socket
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-
-+0 setsockopt(3, IPPROTO_SCTP, SCTP_INITMSG, {sinit_num_ostreams=3, sinit_max_instreams=3, sinit_max_attempts=5, sinit_max_init_timeo=100}, 8) = 0
-
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
 // Trigger the active associtation setup
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
 +0.0 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=0, is=1, tsn=3, STATE_COOKIE[len=4, val=...]]
-
-* > sctp: ABORT[flgs=0x01, ...] // TODO: This abort may not be received
++0.0 > sctp: ABORT[flgs=0x01, INVALID_MANDATORY_PARAMETER[]]
