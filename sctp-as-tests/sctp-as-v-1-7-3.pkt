@@ -39,7 +39,7 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-// Verify that the is only one outgoing stream via a socket option
+// Verify that there is only one outgoing stream via a socket option
 // Use getsockopt with SCTP_STATUS and check for sstat_outstrms = 1
 // Verify that the is only one outgoing stream via a send call
 // sctp_sendmsg on stream 0
