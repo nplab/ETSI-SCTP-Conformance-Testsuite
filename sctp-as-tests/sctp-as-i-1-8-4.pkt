@@ -25,43 +25,34 @@
 // SUCH DAMAGE.
 //
 
-
-// Disable extensions to reduce amount of parameters received in INIT-ACK
- 0.0 `sysctl -w net.inet.sctp.ecn_enable=0`
-+0.0 `sysctl -w net.inet.sctp.pr_enable=0`
-+0.0 `sysctl -w net.inet.sctp.asconf_enable=0`
-+0.0 `sysctl -w net.inet.sctp.pktdrop_enable=0`
-+0.0 `sysctl -w net.inet.sctp.reconfig_enable=0`
-
-// Not working on FreeBSD 10.2 - BETA: sysctl: unknown oid '...'
-//+0.0 `sysctl -w net.inet.sctp.auth_enable=0`
-//+0.0 `sysctl -w net.inet.sctp.nrsack_enable=0`
+// Disable extensions to minimize the parameters sent in INIT-ACK chunks
+ 0.0 `sysctl -i net.inet.sctp.ecn_enable=0`
++0.0 `sysctl -i net.inet.sctp.pr_enable=0`
++0.0 `sysctl -i net.inet.sctp.asconf_enable=0`
++0.0 `sysctl -i net.inet.sctp.pktdrop_enable=0`
++0.0 `sysctl -i net.inet.sctp.reconfig_enable=0`
++0.0 `sysctl -i net.inet.sctp.auth_enable=0`    // FreeBSD 11 and higher
++0.0 `sysctl -i net.inet.sctp.auth_disable=1`   // FreeBSD 9.x and 10.x
++0.0 `sysctl -i net.inet.sctp.nrsack_enable=0`  // FreeBSD 11 and higher
++0.0 `sysctl -i net.inet.sctp.nrsack_on_off=0`  // FreeBSD 9.x and 10.x
 
 
 // Create a blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
-
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
 // Perform the passive associtation setup
 +0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1,
                   PARAMETER[type=0x800c, len=5, val=[0xff]]]
-
 +0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=3,
-                      PARAMETER[type=0x8008, len=5, val=...],
-                      PARAMETER[type=0x8002, len=36, val=...],
-                      PARAMETER[type=0x8004, len=8, val=...],
-                      PARAMETER[type=0x8003, len=4, val=...],
                       STATE_COOKIE[len=..., val=...]]
-
 +0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 accept(3, ..., ...) = 4
++0.0 close(3) = 0
 // Tear down the association
 +1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
-+0.0 close(3) = 0
-
