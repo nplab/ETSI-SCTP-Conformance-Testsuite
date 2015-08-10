@@ -26,15 +26,6 @@
 //
 
 // Disable extensions to minimize the parameters sent in INIT-ACK chunks
- 0.0 `sysctl -i net.inet.sctp.ecn_enable=0`
-+0.0 `sysctl -i net.inet.sctp.pr_enable=0`
-+0.0 `sysctl -i net.inet.sctp.asconf_enable=0`
-+0.0 `sysctl -i net.inet.sctp.pktdrop_enable=0`
-+0.0 `sysctl -i net.inet.sctp.reconfig_enable=0`
-+0.0 `sysctl -i net.inet.sctp.auth_enable=0`    // FreeBSD 11 and higher
-+0.0 `sysctl -i net.inet.sctp.auth_disable=1`   // FreeBSD 9.x and 10.x
-+0.0 `sysctl -i net.inet.sctp.nrsack_enable=0`  // FreeBSD 11 and higher
-+0.0 `sysctl -i net.inet.sctp.nrsack_on_off=0`  // FreeBSD 9.x and 10.x
 
 // Create a blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
