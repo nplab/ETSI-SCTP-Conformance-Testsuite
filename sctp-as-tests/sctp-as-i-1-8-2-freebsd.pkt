@@ -45,7 +45,7 @@
                   PARAMETER[type=0xc0cc, len=8, val=[0x01, 0x01, 0x01, 0x01]],
                   PARAMETER[type=0x00cc, len=8, val=[0x02, 0x02, 0x02, 0x02]],
                   PARAMETER[type=0xc0cc, len=8, val=[0x03, 0x03, 0x03, 0x03]]]
-+0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=3,
++0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=1,
                       UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x01, 0x01, 0x01, 0x01]]]],
                       STATE_COOKIE[len=..., val=...]]
 +0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
