@@ -34,7 +34,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-as-i-1-12-2](sctp-as-i-1-12-2.pkt) | Yes          | Yes       | No          | Passed          | Passed (Note 11)|
 |[sctp-as-v-1-13-1](sctp-as-v-1-13-1.pkt) | Yes          | Yes       | No          | Passed          | Passed          |
 |[sctp-as-i-1-13-2](sctp-as-i-1-13-2.pkt) | Yes (Note 12)| Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt) | Yes          | No        | No          | Unknown         | Unknown         |
+|[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt) | Yes (Note 13)| Yes       | No          | Passed          | Passed          |
 |[sctp-as-i-1-14-2](sctp-as-i-1-14-2.pkt) | Yes          | No        | No          | Unknown         | Unknown         |
 |[sctp-as-1-1-15](sctp-as-1-1-15.pkt)     | Impossible   | No        | No          | Unknown         | Unknown         |
 
@@ -52,3 +52,4 @@ The following table show the current status of the Implementation. Once the impl
 10. FreeBSD sends an ABORT chunk in response to the INIT chunk. This is tracked as [issue 5](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/5).
 11. It looks like Linux is sending multiple packets with ABORT chunks if multiple problems with the INIT-ACK exist (missing mandatory parameter (cookie missing) and unresolvable address (hostname parameter).
 12. The test description doesn't make sense. The supported address types parameter should be ignored. See the implementation note in the last paragraph of [RFC 4960](https://tools.ietf.org/html/rfc4960#section-5.1.2). Therefore it is tested that if only IPv6 support is announced but IPv4 is used, the association setup is successful.
+13. It is assumed that the SUTs send an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't.
