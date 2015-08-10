@@ -36,10 +36,10 @@
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 accept(3, ..., ...) = 4
++0.0 close(3) = 0
 // Tear down the association
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
-+0.0 close(3) = 0
 
