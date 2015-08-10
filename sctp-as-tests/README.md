@@ -20,10 +20,10 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-as-v-1-7-3](sctp-as-v-1-7-3.pkt)   | Yes (Note 6)| No        | No          | Unknown        | Unknown        |
 |[sctp-as-i-1-7-4](sctp-as-i-1-7-4.pkt)   | Yes (Note 8)| Yes       | No          | Passed         | Passed         |
 |[sctp-as-v-1-7-5](sctp-as-v-1-7-5.pkt)   | Yes (Note 6)| No        | No          | Unknown        | Unknown        |
-|[sctp-as-i-1-8-1](sctp-as-i-1-8-1.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
-|[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
-|[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
-|[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
+|[sctp-as-i-1-8-1](sctp-as-i-1-8-1.pkt)   | Yes         | Yes       | Yes (Note 9)| Passed         | Passed         |
+|[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt)   | Yes         | Yes       | Yes (Note 9)| Passed         | Passed         |
+|[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt)   | Yes         | Yes       | Yes (Note 9)| Passed         | Passed         |
+|[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt)   | Yes         | Yes       | Yes (Note 9)| Passed         | Passed         |
 |[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt)   | Yes         | No        | No          | Unknown        | Unknown        |
 |[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt)   | Impossible  | No        | No          | Unknown        | Unknown        |
 |[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt) | Yes         | No        | No          | Unknown        | Unknown        |
@@ -48,3 +48,4 @@ The following table show the current status of the Implementation. Once the impl
 6. packetdrill is missing support for using getsockopt() for SCTP_STATUS (tracked in [issue 25](https://github.com/nplab/packetdrill/issues/25) and [issue 29](https://github.com/nplab/packetdrill/issues/29)).
 7. It is assumed that an INIT chunk indicating the number of outgoing streams of 0 is responded with an ABORT chunk indicating an invalid mandatory parameter.
 8. FreeBSD sends the ABORT with the T-bit set whereas Linux sends the ABORT with the T-bit cleared.
+9. The sysctl's are platform dependent, of course. FreeBSD sends the cookie parameter as the last parameter in the INIT-ACK chunk, whereas Linux sends it as the first parameter.
