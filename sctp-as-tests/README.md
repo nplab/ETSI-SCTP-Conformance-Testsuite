@@ -25,7 +25,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt)   | Yes         | Yes       | Yes (Note 9)| Passed          | Passed         |
 |[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt)   | Yes         | Yes       | Yes (Note 9)| Passed          | Passed         |
 |[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt)   | Yes         | Yes       | No          | Failed (Note 10)| Passed         |
-|[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt)   | Impossible  | No        | No          | Unknown         | Unknown        |
+|[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt)   | Yes         | Yes       | No          | Passed (Note 10)| Passed         |
 |[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt) | Yes         | No        | No          | Unknown         | Unknown        |
 |[sctp-as-v-1-10-2](sctp-as-v-1-10-2.pkt) | Yes         | No        | No          | Unknown         | Unknown        |
 |[sctp-as-v-1-11-1](sctp-as-v-1-11-1.pkt) | Impossible  | No        | No          | Unknown         | Unknown        |
