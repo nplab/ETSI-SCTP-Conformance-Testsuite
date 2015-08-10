@@ -26,6 +26,7 @@
 //
 
 // Disable extensions to minimize the parameters sent in INIT-ACK chunks
+#ifdef FreeBSD
  0.0 `sysctl -i net.inet.sctp.ecn_enable=0`
 +0.0 `sysctl -i net.inet.sctp.pr_enable=0`
 +0.0 `sysctl -i net.inet.sctp.asconf_enable=0`
@@ -35,6 +36,7 @@
 +0.0 `sysctl -i net.inet.sctp.auth_disable=1`   // FreeBSD 9.x and 10.x
 +0.0 `sysctl -i net.inet.sctp.nrsack_enable=0`  // FreeBSD 11 and higher
 +0.0 `sysctl -i net.inet.sctp.nrsack_on_off=0`  // FreeBSD 9.x and 10.x
+#endif
 
 // Create a blocking 1-to-1 style listening socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
@@ -42,22 +44,22 @@
 +0.0 listen(3, 1) = 0
 // Perform the passive associtation setup
 +0.0 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=1,
-                  PARAMETER[type=0xc0cc, len=5, val=[0x01]],
-                  PARAMETER[type=0xc0cc, len=5, val=[0x02]],
-                  PARAMETER[type=0xc0cc, len=5, val=[0x03]]]
+                  PARAMETER[type=0xc0cc, len=8, val=[0x01, 0x01, 0x01, 0x01]],
+                  PARAMETER[type=0xc0cc, len=8, val=[0x02, 0x02, 0x02, 0x02]],
+                  PARAMETER[type=0xc0cc, len=8, val=[0x03, 0x03, 0x03, 0x03]]]
 #ifdef FreeBSD
 +0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=3,
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=5, val=[0x01]]]],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=5, val=[0x02]]]],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=5, val=[0x03]]]],
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x01, 0x01, 0x01, 0x01]]]],
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x02, 0x02, 0x02, 0x02]]]],
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x03, 0x03, 0x03, 0x03]]]],
                       STATE_COOKIE[len=..., val=...]]
 #endif
 #ifdef Linux
 +0.0 > sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=..., os=..., is=..., tsn=3,
                       STATE_COOKIE[len=..., val=...],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=5, val=[0x01]]]],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=5, val=[0x02]]]],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=5, val=[0x03]]]]]
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x01, 0x01, 0x01, 0x01]]]],
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x02, 0x02, 0x02, 0x02]]]],
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x03, 0x03, 0x03, 0x03]]]],
 #endif
 +0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
