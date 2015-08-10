@@ -36,8 +36,6 @@
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
 +0.0 < sctp: CHUNK[type=0x02, flgs=0x00, len=8, val=[0x01, 0x02, 0x03, 0x04]]
-#ifdef Linux
 +0.0 > sctp: ABORT[flgs=T, PROTOCOL_VIOLATION[info=...]
-#endif
 +0.1 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=0, ...]
 +0.0 close(3) = 0
