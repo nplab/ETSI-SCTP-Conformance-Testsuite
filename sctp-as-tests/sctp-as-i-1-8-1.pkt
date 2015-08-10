@@ -59,7 +59,7 @@
                       STATE_COOKIE[len=..., val=...],
                       UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x01, 0x01, 0x01, 0x01]]]],
                       UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x02, 0x02, 0x02, 0x02]]]],
-                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x03, 0x03, 0x03, 0x03]]]],
+                      UNRECOGNIZED_PARAMETER[params=[PARAMETER[type=0xc0cc, len=8, val=[0x03, 0x03, 0x03, 0x03]]]]]
 #endif
 +0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
