@@ -35,6 +35,7 @@
 +0.0 < sctp(tag=15): COOKIE_ECHO[flgs=0, len=..., val=...];
 +0.1 accept(3, ..., ...) = -1 EAGAIN (Resource temporarily unavailable)
 +0.0 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
++0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.1 accept(3, ..., ...) = 4
 +0.1 close(3) = 0
 +0.0 close(4) = 0
