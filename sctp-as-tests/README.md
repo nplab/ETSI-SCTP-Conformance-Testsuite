@@ -36,7 +36,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-as-i-1-13-2](sctp-as-i-1-13-2.pkt) | Yes (Note 12)| Yes       | No          | Passed          | Passed          |
 |[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt) | Yes (Note 13)| Yes       | No          | Passed          | Passed          |
 |[sctp-as-i-1-14-2](sctp-as-i-1-14-2.pkt) | Yes (Note 14)| Yes       | No          | Passed          | Passed          |
-|[sctp-as-1-1-15](sctp-as-1-1-15.pkt)     | Impossible   | No        | No          | Unknown         | Unknown         |
+|[sctp-as-i-1-15](sctp-as-i-1-15.pkt)     | Yes (Note 15)| No        | No          | Unknown         | Unknown         |
 
 # Notes
 
@@ -54,3 +54,4 @@ The following table show the current status of the Implementation. Once the impl
 12. The test description doesn't make sense. The supported address types parameter should be ignored. See the implementation note in the last paragraph of [RFC 4960](https://tools.ietf.org/html/rfc4960#section-5.1.2). Therefore it is tested that if only IPv6 support is announced but IPv4 is used, the association setup is successful.
 13. It is assumed that the SUT sends an ABORT using an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't. It should be noted that there is no TCB to be destroyed.
 14. It is assumed that the SUT sends an ABORT using an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't. Furthermore it should be noted that FreeBSD indicates ETIMEDOUT at the socket layer, whereas Linux provides ECONNREFUSED.
+15. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28). Furthermore sctp_connectx() needs to be supported by packetdrill. This is tracked in [issue 30](https://github.com/nplab/packetdrill/issues/30).
