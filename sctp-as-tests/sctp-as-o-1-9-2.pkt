@@ -34,8 +34,6 @@
 +0.1 < sctp: COOKIE_ECHO[flgs=0, len=..., val=...]
 +0.0 > sctp: COOKIE_ACK[flgs=0]
 +0.0 accept(3, ..., ...) = 4
-
-
-+0.2 < sctp: INIT[flgs=0, tag=1, a_rwnd=1500, os=1, is=1, tsn=0, IPV4_ADDRESS[addr=1.1.1.1]]
-
-+0.0 > sctp: ABORT[flgs=0]
++0.0 close(3) = 0
++0.2 < sctp: INIT[flgs=0, tag=3, a_rwnd=1500, os=1, is=1, tsn=0, IPV4_ADDRESS[addr=1.1.1.1]]
++0.0 > sctp: ABORT[flgs=0, ...]
