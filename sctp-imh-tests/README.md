@@ -13,7 +13,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-imh-i-3-7](sctp-imh-i-3-7.pkt)   | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-8](sctp-imh-i-3-8.pkt)   | No          | No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-9](sctp-imh-i-3-9.pkt)   | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
-|[sctp-imh-i-3-10](sctp-imh-i-3-10.pkt) | No          | No        | No          | Unknown        | Unknown      |
+|[sctp-imh-i-3-10](sctp-imh-i-3-10.pkt) | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
 
 # Notes
 1. It is assumed that the SUT does not send an ABORT chunk in response to a malformed INIT chunk.
