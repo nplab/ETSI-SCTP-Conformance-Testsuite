@@ -12,7 +12,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-imh-i-3-6](sctp-imh-i-3-6.pkt)   | Yes (Note 6)| Yes       | No          | Passed         | Passed       |
 |[sctp-imh-i-3-7](sctp-imh-i-3-7.pkt)   | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-8](sctp-imh-i-3-8.pkt)   | No          | No        | No          | Unknown        | Unknown      |
-|[sctp-imh-i-3-9](sctp-imh-i-3-9.pkt)   | No          | No        | No          | Unknown        | Unknown      |
+|[sctp-imh-i-3-9](sctp-imh-i-3-9.pkt)   | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-10](sctp-imh-i-3-10.pkt) | No          | No        | No          | Unknown        | Unknown      |
 
 # Notes
