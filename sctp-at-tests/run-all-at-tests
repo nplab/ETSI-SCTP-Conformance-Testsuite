@@ -1,0 +1,44 @@
+#!/usr/bin/env tcsh
+set packetdrill = /home/tuexen/packetdrill/gtests/net/packetdrill/packetdrill
+set delay = 1
+set testcases = (sctp-at-v-2-2   \
+                 sctp-at-i-2-3   \
+                 sctp-at-i-2-4   \
+                 sctp-at-i-2-5   \
+                 sctp-at-v-2-6   \
+                 sctp-at-i-2-7-1 \
+                 sctp-at-i-2-7-2 \
+                 sctp-at-i-2-7-3 \
+                 sctp-at-i-2-7-4 \
+                 sctp-at-i-2-8   \
+                 sctp-at-i-2-9   \
+                 sctp-at-i-2-10  \
+                 sctp-at-i-2-11  \
+                 sctp-at-i-2-12  \
+                 sctp-at-i-2-13  \
+                 sctp-at-v-2-14  )
+
+set passed = 0
+set failed = 0
+set run = 0
+
+printf "Name                                    Verdict\n"
+printf "===============================================\n"
+foreach testcase ($testcases)
+  printf "%-40.40s " $testcase
+  $packetdrill ${testcase}.pkt >& /dev/null
+  if ($status == 0) then
+    @ passed++
+    printf "\033[32m%-6.6s\033[0m\n" "PASSED"
+  else
+    @ failed++
+    printf "\033[31m%-6.6s\033[0m\n" "FAILED"
+  endif
+  @ run++ 
+sleep $delay
+end
+printf "===============================================\n"
+printf "Summary: Number of tests run:    %3u\n" $run
+printf "         Number of tests passed: %3u\n" $passed
+printf "         Number of tests failed: %3u\n" $failed
+
