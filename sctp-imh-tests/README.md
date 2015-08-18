@@ -11,7 +11,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-imh-i-3-5](sctp-imh-i-3-5.pkt)   | Yes (Note 5)| No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-6](sctp-imh-i-3-6.pkt)   | Yes (Note 6)| Yes       | No          | Passed         | Passed       |
 |[sctp-imh-i-3-7](sctp-imh-i-3-7.pkt)   | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
-|[sctp-imh-i-3-8](sctp-imh-i-3-8.pkt)   | No          | No        | No          | Unknown        | Unknown      |
+|[sctp-imh-i-3-8](sctp-imh-i-3-8.pkt)   | Yes (Note 8)| No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-9](sctp-imh-i-3-9.pkt)   | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
 |[sctp-imh-i-3-10](sctp-imh-i-3-10.pkt) | Yes (Note 7)| No        | No          | Unknown        | Unknown      |
 
@@ -23,3 +23,4 @@ The following table show the current status of the Implementation. Once the impl
 5. packetdrill seems to have a problem with checking that an accept() call fails. This is tracked in [issue 31](https://github.com/nplab/packetdrill/issues/31). Furthermore, packetdrill lacks the ability to specify the cookie. This is tracked in in [issue 34](https://github.com/nplab/packetdrill/issues/34).
 6. It is assumed that the SUT uses a cookie lifetime of 60 seconds.
 7. packetdrill lacks the ability to specifiy verification tags in the SCTP common header. This is tracked in [issue 32](https://github.com/nplab/packetdrill/issues/32).
+8. packetdrill lacks the ability to specifiy arbitrary packets. This is tracked in [issue 35](https://github.com/nplab/packetdrill/issues/35).
