@@ -23,7 +23,7 @@ The following table show the current status of the Implementation. Once the impl
 
 # Notes
 
-1. On timetout, Linux reports ETIMEDOUT and FreeBSD reports ECONNABORTED at the socket layer in errno.
+1. When the shutdown guard timer runs off, Linux reports ETIMEDOUT and FreeBSD reports ECONNABORTED at the socket layer in errno  (similar to Note 11).
 2. Fix for [sctp-at-i-2-5](sctp-at-i-2-5.pkt): [head](https://svnweb.freebsd.org/changeset/base/287294).
 3. Once the association has been terminated on a connected non-blocking 1-to-1 style socket, read() returns -1 indicating "Resource temporarily unavailable" instead of 0. See Note 6 on [README](https://github.com/nplab/ETSI-SCTP-Conformance-Testsuite/blob/master/sctp-bdc-tests/README.md).
 4. When calling write() after shutdown(, SHUT_WR), Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
@@ -33,4 +33,4 @@ The following table show the current status of the Implementation. Once the impl
 8. When the association is in SHUTDOWN-ACK-SENT state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 9. It is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
 10. Not sure where it is specified that DATA chunks after SHUTDOWN chunk needs to be discarded. Looks like a protocol violation to me.
-11. After more than Max.Assoc.Retrans retranmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT.
+11. After more than Max.Assoc.Retrans retranmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT (similar to Note 1).
