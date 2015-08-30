@@ -30,6 +30,6 @@ The following table show the current status of the Implementation. Once the impl
 5. Two bundled SHUTDOWN_ACK chunks are sent. This is tracked in [issue 7](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/7).
 6. When the association is in SHUTDOWN-PENDING state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 7. When the association is in SHUTDOWN-ACK-SENT state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
-8. I is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
+8. It is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
 9. Not sure where it is specified that DATA chunks after SHUTDOWN chunk needs to be discarded. Looks like a protocol violation to me.
 10. After more than Max.Assoc.Retrans retranmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT.
