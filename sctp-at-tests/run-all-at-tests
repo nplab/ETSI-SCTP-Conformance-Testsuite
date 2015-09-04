@@ -57,10 +57,12 @@ foreach testcase ($testcases)
   printf "%-40.40s " $testcase
   if (-f ${rootdir}/${testcase}-$os.pkt) then
     $packetdrill ${rootdir}/${testcase}-$os.pkt >& /dev/null
+    set result = $status
   else
     $packetdrill ${rootdir}/${testcase}.pkt >& /dev/null
+    set result = $status
   endif
-  if ($status == 0) then
+  if ($result == 0) then
     @ passed++
     printf "\033[32m%-6.6s\033[0m\n" "PASSED"
   else
