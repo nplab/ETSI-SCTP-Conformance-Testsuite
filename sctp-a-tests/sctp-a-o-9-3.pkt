@@ -41,9 +41,14 @@
 +0.0 read(4, ..., 200) = 100
 +0.0 > sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=..., gaps=[], dups=[]]
 // Inject the third message (the second is missing)
-+0.0 < sctp: DATA[flgs=BE, len=116, tsn=3, sid=0, ssn=3, ppid=0]
++0.0 < sctp: DATA[flgs=BE, len=116, tsn=3, sid=0, ssn=2, ppid=0]
 // Check if a SACK with a gap report is sent immediately
 +0.0 > sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=..., gaps=[2:2], dups=[]]
+// Inject the missing second message
++0.0 < sctp: DATA[flgs=BE, len=116, tsn=2, sid=0, ssn=1, ppid=0]
++0.0 read(4, ..., 200) = 100
++0.0 read(4, ..., 200) = 100
++0.0 > sctp: SACK[flgs=0, cum_tsn=3, a_rwnd=..., gaps=[], dups=[]]
 
 // Tear down the association
 +1.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
