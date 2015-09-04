@@ -45,6 +45,7 @@ set testcases = (sctp-at-v-2-2   \
                  sctp-at-i-2-13  \
                  sctp-at-v-2-14  )
 
+set rootdir = `/usr/bin/dirname $0`
 set passed = 0
 set failed = 0
 set run = 0
@@ -53,7 +54,7 @@ printf "Name                                    Verdict\n"
 printf "===============================================\n"
 foreach testcase ($testcases)
   printf "%-40.40s " $testcase
-  $packetdrill ${testcase}.pkt >& /dev/null
+  $packetdrill ${rootdir}/${testcase}.pkt >& /dev/null
   if ($status == 0) then
     @ passed++
     printf "\033[32m%-6.6s\033[0m\n" "PASSED"
