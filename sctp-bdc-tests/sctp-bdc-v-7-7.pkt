@@ -36,13 +36,13 @@
 +0.0 accept(3, ..., ...) = 4
 +0.0 close(3) = 0
 // Inject a DATA chunk bundled with a SACK chunk
-+0.1 < sctp: SACK[flgs=0, cum_tsn=0, a_rwnd=1500, gaps=[], dups=[]];
++0.0 < sctp: SACK[flgs=0, cum_tsn=0, a_rwnd=1500, gaps=[], dups=[]];
              DATA[flgs=BE, len=116, tsn=1, sid=0, ssn=0, ppid=0]
 // Verify that the DATA chunk has been processed
 +0.0 read(4, ..., 200) = 100
 +0.0 > sctp: SACK[flgs=0, cum_tsn=1, a_rwnd=..., gaps=[], dups=[]]
 // Teardown the association
-+0.1 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 +0.0 > sctp: SHUTDOWN_ACK[flgs=0]
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
 +0.0 close(4) = 0
