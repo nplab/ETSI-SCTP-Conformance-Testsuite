@@ -41,6 +41,13 @@
 // Inject a SHUTDOWN_COMPLETE chunk bundled with a DATA chunk
 +0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0];
              DATA[flgs=BE, len=116, tsn=1, sid=0, ssn=0, ppid=0]
-// SUT responds with an ABORT
+#ifdef FreeBSD
+// FreeBSD just ignores it.
+*    > sctp: SHUTDOWN_ACK[flgs=0]
++0.0 < sctp: SHUTDOWN_COMPLETE[flgs=0]
+#endif
+#ifdef Linux
+-// Linux responds with an ABORT
 +0.0 > sctp: ABORT[flgs=0x00, PROTOCOL_VIOLATION[info=...]]
+#endif
 +0.0 close(4) = 0
