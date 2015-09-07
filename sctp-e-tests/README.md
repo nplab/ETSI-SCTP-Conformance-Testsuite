@@ -2,14 +2,14 @@
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
-| Name                            | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux |
-|:--------------------------------|:------------:|:---------:|:-----------:|:--------------:|:------------:|
-|[sctp-e-o-6-1](sctp-e-o-6-1.pkt) | Yes          | Yes       | No          | Passed         | Passed       |
-|[sctp-e-o-6-2](sctp-e-o-6-2.pkt) | Yes          | Yes       | No          | Passed         | Passed       |
-|[sctp-e-i-6-3](sctp-e-i-6-3.pkt) | Yes          | Yes       | No          | Passed         | Passed       |
-|[sctp-e-i-6-4](sctp-e-i-6-4.pkt) | Yes (Note 1) | Yes       | No          | Unknown        | Unknown      |
-|[sctp-e-i-6-5](sctp-e-i-6-5.pkt) | Yes (Note 2) | Yes       | No          | Passed         | Passed       |
-|[sctp-e-i-6-6](sctp-e-i-6-6.pkt) | Yes (Note 3) | Yes       | No          | Passed         | Passed       |
+| Name                                                                                                                            | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux |
+|:--------------------------------------------------------------------------------------------------------------------------------|:------------:|:---------:|:-----------:|:--------------:|:------------:|
+|[sctp-e-o-6-1](sctp-e-o-6-1.pkt "Handling of an ERROR chunk indicating state cookie in state COOKIE-ECHOED")                     | Yes          | Yes       | No          | Passed         | Passed       |
+|[sctp-e-o-6-2](sctp-e-o-6-2.pkt "Handling of an ERROR chunk indicating state cookie in states other than COOKIE-ECHOED")         | Yes          | Yes       | No          | Passed         | Passed       |
+|[sctp-e-i-6-3](sctp-e-i-6-3.pkt "Handling of a DATA chunk on a non-existing stream")                                             | Yes          | Yes       | No          | Passed         | Passed       |
+|[sctp-e-i-6-4](sctp-e-i-6-4.pkt "Handling of an INIT-ACK chunk without a cookie")                                                | Yes (Note 1) | Yes       | No          | Unknown        | Unknown      |
+|[sctp-e-i-6-5](sctp-e-i-6-5.pkt "Handling of an INIT-ACK chunk containing an unknown parameter")                                 | Yes (Note 2) | Yes       | No          | Passed         | Passed       |
+|[sctp-e-i-6-6](sctp-e-i-6-6.pkt "Handling of a COOKIE-ECHO chunk bundled with an ERROR chunk indicating unrecognized parameters")| Yes (Note 3) | Yes       | No          | Passed         | Passed       |
 
 # Notes
 1. It is not clear whether the padding is a cause padding or a chunk padding.

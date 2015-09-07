@@ -24,6 +24,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 2. Three tests are not applicable.
 
 # Fixes for FreeBSD
-1. Fix for [sctp-d-i-8-11](sctp-d-i-8-11.pkt): [head](https://svnweb.freebsd.org/changeset/base/286206).
-2. Fix for [sctp-at-i-2-5](sctp-at-i-2-5.pkt): [head](https://svnweb.freebsd.org/changeset/base/287294).
-3. Fix for [sctp-at-i-2-7-2](sctp-at-i-2-7-2.pkt): [head](https://svnweb.freebsd.org/changeset/base/287444).
+1. Fix for [sctp-d-i-8-11](sctp-d-tests/sctp-d-i-8-11.pkt): [head](https://svnweb.freebsd.org/changeset/base/286206).
+2. Fix for [sctp-at-i-2-5](sctp-at-tests/sctp-at-i-2-5.pkt): [head](https://svnweb.freebsd.org/changeset/base/287294).
+3. Fix for [sctp-at-i-2-7-2](sctp-at-tests/sctp-at-i-2-7-2.pkt): [head](https://svnweb.freebsd.org/changeset/base/287444).
+4. Fix for [sctp-bdc-i-7-1](sctp-bdc-tests/sctp-bdc-i-7-1.pkt): [head](https://svnweb.freebsd.org/changeset/base/287535).
