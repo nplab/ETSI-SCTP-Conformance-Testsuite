@@ -42,7 +42,7 @@ set os = `uname -s | tr '[A-Z]' '[a-z]'`
 set passed = 0
 set failed = 0
 set run = 0
-echo $os
+
 printf "Name                                    Verdict\n"
 printf "===============================================\n"
 foreach testcase ($testcases)
