@@ -17,6 +17,6 @@ The following table show the current status of the Implementation. Once the impl
 
 1. Linux sends HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them once it is implemented. This is tracked in [issue 27](https://github.com/nplab/packetdrill/issues/27).
 2. packetdrill currenly doesn't support the injection of OOTB packets. A workaround is used, the issue is tracked in [issue 24](https://github.com/nplab/packetdrill/issues/24).
-3. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in repsonse to OOTB ABORT chunks.
-4. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in repsonse to OOTB SHUTDOWN-COMPLETE chunks.
+3. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in response to OOTB ABORT chunks.
+4. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in response to OOTB SHUTDOWN-COMPLETE chunks.
 5. packetdrill doesn't support the specification of source addresses on a per packet base, which must also be non-uni-cast. This is tracked in [issue 26](https://github.com/nplab/packetdrill/issues/26).
