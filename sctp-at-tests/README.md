@@ -33,4 +33,4 @@ The following table show the current status of the Implementation. Once the impl
 8. When the association is in SHUTDOWN-ACK-SENT state and write() is called, Linux reports ESHUTDOWN whereas FreeBSD reports ECONNRESET. Shouldn't EPIPE be reported?
 9. It is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
 10. Not sure where it is specified that DATA chunks after SHUTDOWN chunk needs to be discarded. Looks like a protocol violation to me.
-11. After more than Max.Assoc.Retrans retranmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT (similar to Note 1).
+11. After more than Max.Assoc.Retrans retransmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT (similar to Note 1).
