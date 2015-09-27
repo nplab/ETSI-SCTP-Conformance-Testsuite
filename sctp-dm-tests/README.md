@@ -21,7 +21,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-dm-o-4-10](sctp-dm-o-4-10.pkt)   | Yes (Note 5)| Yes        | No          | Passed         | Passed       |
 
 # Notes
-1. FreeBSD sends an ABORT if the listening socket is closed when the INIT is received. This is tracked in [issue](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/5).
+1. FreeBSD sends an ABORT if the listening socket is closed when the INIT is received. This is tracked in [issue 5](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/5).
 2. packetdrill currenly doesn't support the injection of OOTB packets. A workaround is used, the issue is tracked in [issue 24](https://github.com/nplab/packetdrill/issues/24).
 3. It is assumed that the SUT silently discards SHUTDOWN-ACK chunks received in the ESTABLISHED state.
 4. Packetdrill currently doesn't allow to inject an illegal cookie. This is tracked in [issue 23](https://github.com/nplab/packetdrill/issues/23).
