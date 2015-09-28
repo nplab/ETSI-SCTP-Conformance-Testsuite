@@ -24,5 +24,5 @@ The following table show the current status of the Implementation. Once the impl
 1. It is assumed that the MTU is 1500 bytes and that IPv4 is used as the network protocol.
 2. Linux sends sometimes HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them once it is implemented. This is tracked in [issue 27](https://github.com/nplab/packetdrill/issues/27).
 3. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28).
-4. Fix for [sctp-d-i-8-11](sctp-d-i-8-11.pkt): [head](https://svnweb.freebsd.org/changeset/base/286206).
+4. Fix for [sctp-d-i-8-11](sctp-d-i-8-11.pkt): [r286206](https://svnweb.freebsd.org/changeset/base/286206).
 5. Socket layer based implementations don't limit the length of user messages to be received. Therefore the optional test doesn't apply.
