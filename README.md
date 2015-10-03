@@ -17,7 +17,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 | [Data (D)](sctp-d-tests/README.md)                                             | 15                      |  12 (Note 2)|  8        |
 | [Acknowledgement (A)](sctp-a-tests/README.md)                                  | 3                       |  3          |  3        |
 | [Miscellaneous (M)](sctp-m-tests/README.md)                                    | 4                       |  4          |  4        |
-| [Retransmission Timer (RT)](sctp-rt-tests/README.md)                           | 3                       |  3          |  0        |
+| [Retransmission Timer (RT)](sctp-rt-tests/README.md)                           | 3                       |  3          |  2        |
 
 # Notes
 1. One test is not applicable and two tests are not implementable within packetdrill.
