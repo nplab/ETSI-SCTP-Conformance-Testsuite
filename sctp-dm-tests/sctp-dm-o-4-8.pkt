@@ -36,7 +36,7 @@
 +0.1 < sctp: COOKIE_ACK[flgs=0]
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Inject an invalid cookie
-+0.0 < sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
++0.0 < sctp: COOKIE_ECHO[flgs=0, len=16, val=[0x01, 0x02, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x9, 0x0a, 0x0b]]
 // Any error pending at the socket layer?
 +0.1 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Verify the association is still intact
