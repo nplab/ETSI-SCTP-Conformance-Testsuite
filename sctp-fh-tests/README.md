@@ -2,20 +2,20 @@
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
-| Name                                                                                                                         | Implemented    | Finalized | OS specific | Result FreeBSD | Result Linux    |
-|:-----------------------------------------------------------------------------------------------------------------------------|:--------------:|:---------:|:-----------:|:--------------:|:---------------:|
-|[sctp-fh-i-5-1-1](sctp-fh-i-5-1-1.pkt "Handling of excessive timer based retransmissions")                                    | Yes            | No        | No          | Passed         | Unknown (Note 1)|
-|[sctp-fh-i-5-1-2](sctp-fh-i-5-1-2.pkt "Resetting the number of retransmissions on reception of a SACK chunk")                 | Yes            | No        | No          | Passed         | Unknown (Note 1)|
-|[sctp-fh-v-5-2](sctp-fh-v-5-2.pkt     "Handling of HEARTBEAT chunks in the ESTABLISHED state")                                | Yes            | Yes       | No          | Passed         | Passed          |
-|[sctp-fh-o-5-3-1](sctp-fh-o-5-3-1.pkt "Handling of OOTB packets containing a DATA chunk")                                     | Yes (Note 2)   | No        | No          | Passed         | Passed          |
-|[sctp-fh-o-5-3-2](sctp-fh-o-5-3-2.pkt "Handling of OOTB packets containing an ABORT chunk")                                   | Yes (Note 2, 3)| No        | No          | Passed         | Passed          |
-|[sctp-fh-o-5-3-3](sctp-fh-o-5-3-3.pkt "Handling of OOTB packets containing an SHUTDOWN-ACK chunk")                            | Yes (Note 2)   | No        | No          | Passed         | Passed          |
-|[sctp-fh-o-5-3-4](sctp-fh-o-5-3-4.pkt "Handling of OOTB packets containing an SHUTDOWN-COMPLETE chunk")                       | Yes (Note 2, 4)| No        | No          | Passed         | Passed          |
-|[sctp-fh-o-5-3-5](sctp-fh-o-5-3-5.pkt "Handling of packets with a non-unicast source address containing a COOKIE-ECHO chunk") | Yes (Note 5)   | No        | No          | Unknown        | Unknown         |
+| Name                                                                                                                         | Implemented  | Finalized   | OS specific | Result FreeBSD | Result Linux    |
+|:-----------------------------------------------------------------------------------------------------------------------------|:------------:|:-----------:|:-----------:|:--------------:|:---------------:|
+|[sctp-fh-i-5-1-1](sctp-fh-i-5-1-1.pkt "Handling of excessive timer based retransmissions")                                    | Yes (Note 1) | Yes         | No          | Passed         | Passed          |
+|[sctp-fh-i-5-1-2](sctp-fh-i-5-1-2.pkt "Resetting the number of retransmissions on reception of a SACK chunk")                 | Yes (Note 1) | Yes         | No          | Passed         | Passed          |
+|[sctp-fh-v-5-2](sctp-fh-v-5-2.pkt     "Handling of HEARTBEAT chunks in the ESTABLISHED state")                                | Yes          | Yes         | No          | Passed         | Passed          |
+|[sctp-fh-o-5-3-1](sctp-fh-o-5-3-1.pkt "Handling of OOTB packets containing a DATA chunk")                                     | Yes          | No (Note 2) | No          | Passed         | Passed          |
+|[sctp-fh-o-5-3-2](sctp-fh-o-5-3-2.pkt "Handling of OOTB packets containing an ABORT chunk")                                   | Yes (Note 3) | No (Note 2) | No          | Passed         | Passed          |
+|[sctp-fh-o-5-3-3](sctp-fh-o-5-3-3.pkt "Handling of OOTB packets containing an SHUTDOWN-ACK chunk")                            | Yes          | No (Note 2) | No          | Passed         | Passed          |
+|[sctp-fh-o-5-3-4](sctp-fh-o-5-3-4.pkt "Handling of OOTB packets containing an SHUTDOWN-COMPLETE chunk")                       | Yes (Note 4) | No (Note 2) | No          | Passed         | Passed          |
+|[sctp-fh-o-5-3-5](sctp-fh-o-5-3-5.pkt "Handling of packets with a non-unicast source address containing a COOKIE-ECHO chunk") | Yes          | No (Note 5) | No          | Unknown        | Unknown         |
 
 # Notes
 
-1. Linux sends HEARTBEATs. Use SCTP_PEER_ADDR_PARAMS socket option to disable them once it is implemented. This is tracked in [issue 27](https://github.com/nplab/packetdrill/issues/27).
+1. After more than Max.Assoc.Retrans retransmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT.
 2. packetdrill currenly doesn't support the injection of OOTB packets. A workaround is used, the issue is tracked in [issue 24](https://github.com/nplab/packetdrill/issues/24).
 3. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in response to OOTB ABORT chunks.
 4. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in response to OOTB SHUTDOWN-COMPLETE chunks.
