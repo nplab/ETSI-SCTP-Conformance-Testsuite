@@ -40,7 +40,7 @@
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
 // Verify that there is only one outgoing stream
-+0.0 getsockopt(4, IPPROTO_SCTP, SCTP_STATUS, {sstat_state=SCTP_ESTABLISHED, sstat_rwnd=..., sstat_unackdata=..., sstat_penddata=..., sstat_instrms=..., sstat_outstrms=1, sstat_fragmentation_point=..., sstat_primary=...}, [176]) = 0
++0.0 getsockopt(3, IPPROTO_SCTP, SCTP_STATUS, {sstat_state=SCTP_ESTABLISHED, sstat_rwnd=..., sstat_unackdata=..., sstat_penddata=..., sstat_instrms=..., sstat_outstrms=1, sstat_fragmentation_point=..., sstat_primary=...}, [176]) = 0
 // Tear down the association
 +0.0 close(3) = 0
 +0.0 > sctp: SHUTDOWN[flgs=0, cum_tsn=2]
