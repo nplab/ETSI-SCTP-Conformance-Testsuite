@@ -54,7 +54,11 @@
 *    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
 *    > sctp: DATA[flgs=BE, len=1016, tsn=1, sid=0, ssn=0, ppid=0]
 *    > sctp: ABORT[flgs=0x00, ...]
-// Check error reported to application
-+0.0 getsockopt(4, SOL_SOCKET, SO_ERROR, [ECONNABORTED], [4]) = 0
+// Check at the socket layer that the association is gone
+//+0.1 getsockopt(4, SOL_SOCKET, SO_ERROR, [ECONNABORTED], [4]) = 0 // FreeBSD
+//+0.1 getsockopt(4, SOL_SOCKET, SO_ERROR, [ETIMEDOUT], [4]) = 0    // Linux
+// Check at the protocol layer that the association is gone
++0.1 < sctp: HEARTBEAT[flgs=0, HEARTBEAT_INFORMATION[len=9, val=...]]
++0.0 > sctp: ABORT[flgs=T]
 // Cleanup
 +0.0 close(4) = 0
