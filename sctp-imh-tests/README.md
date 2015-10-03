@@ -19,6 +19,6 @@ The following table show the current status of the Implementation. Once the impl
 1. It is assumed that the SUT does not send an ABORT chunk in response to a malformed INIT chunk.
 2. FreeBSD silently discards the malformed INIT-ACK chunk and retransmits the INIT chunk. Linux responds with an ABORT chunk indicating a protocol violation and signals ECONNREFUSED in the socket layer.
 3. packetdrill lacks the ability to specifiy verification tags in the SCTP common header. This is tracked in [issue 32](https://github.com/nplab/packetdrill/issues/32).
-4. packetdrill doesn't allow to specify a bad checksum for inbound packets. This is tracked in [issue 33](https://github.com/nplab/packetdrill/issues/33).
+4. packetdrill lacks the ability to specify a bad checksum for inbound packets. This is tracked in [issue 33](https://github.com/nplab/packetdrill/issues/33).
 5. It is assumed that the SUT uses a cookie lifetime of 60 seconds.
 6. packetdrill lacks the ability to specifiy arbitrary packets. This is tracked in [issue 35](https://github.com/nplab/packetdrill/issues/35).
