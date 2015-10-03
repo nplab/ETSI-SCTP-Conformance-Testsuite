@@ -2,41 +2,41 @@
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
-| Name                                    | Implemented  | Finalized | OS specific | Result FreeBSD  | Result Linux    |
-|:----------------------------------------|:------------:|:---------:|:-----------:|:---------------:|:---------------:|
-|[sctp-as-v-1-1-1](sctp-as-v-1-1-1.pkt)   | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-v-1-1-2](sctp-as-v-1-1-2.pkt)   | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-2-1](sctp-as-i-1-2-1.pkt)   | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt)   | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt)   | Yes          | Yes       | No          | Passed          | Failed (Note 1) |
-|[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt)   | Yes          | Yes       | No          | Passed          | Failed (Note 2) |
-|[sctp-as-i-1-4](sctp-as-i-1-4.pkt)       | No (Note 3)  | Yes       | No          | Unknown         | Unknown         |
-|[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt)   | No (Note 4)  | Yes       | No          | Unknown         | Unknown         |
-|[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt)   | No (Note 4)  | Yes       | No          | Unknown         | Unknown         |
-|[sctp-as-v-1-6-1](sctp-as-v-1-6-1.pkt)   | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-v-1-6-2](sctp-as-v-1-6-2.pkt)   | Yes (Note 5) | Yes       | No          | Passed          | Passed          |
-|[sctp-as-v-1-7-1](sctp-as-v-1-7-1.pkt)   | Yes (Note 6) | No        | No          | Unknown         | Unknown         |
-|[sctp-as-i-1-7-2](sctp-as-i-1-7-2.pkt)   | Yes (Note 7) | Yes       | No          | Passed          | Passed          |
-|[sctp-as-v-1-7-3](sctp-as-v-1-7-3.pkt)   | Yes (Note 6) | No        | No          | Unknown         | Unknown         |
-|[sctp-as-i-1-7-4](sctp-as-i-1-7-4.pkt)   | Yes (Note 8) | Yes       | No          | Passed          | Passed          |
-|[sctp-as-v-1-7-5](sctp-as-v-1-7-5.pkt)   | Yes (Note 6) | No        | No          | Unknown         | Unknown         |
-|[sctp-as-i-1-8-1](sctp-as-i-1-8-1.pkt)   | Yes          | Yes       | Yes (Note 9)| Passed          | Passed          |
-|[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt)   | Yes          | Yes       | Yes (Note 9)| Passed          | Passed          |
-|[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt)   | Yes          | Yes       | Yes (Note 9)| Passed          | Passed          |
-|[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt)   | Yes          | Yes       | Yes (Note 9)| Passed          | Passed          |
-|[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt)   | Yes          | Yes       | No          | Failed (Note 10)| Passed          |
-|[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt)   | Yes          | Yes       | No          | Passed (Note 10)| Passed          |
-|[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt) | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-v-1-10-2](sctp-as-v-1-10-2.pkt) | Yes          | Yes       | No          | Passed          | Passed         |
-|[sctp-as-v-1-11-1](sctp-as-v-1-11-1.pkt) | Yes (Note 11)| No        | No          | Unknown         | Unknown         |
-|[sctp-as-v-1-11-2](sctp-as-v-1-11-2.pkt) | Yes (Note 11)| No        | No          | Unknown         | Unknown         |
-|[sctp-as-v-1-12-1](sctp-as-v-1-12-1.pkt) | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-12-2](sctp-as-i-1-12-2.pkt) | Yes          | Yes       | No          | Passed          | Passed (Note 12)|
-|[sctp-as-v-1-13-1](sctp-as-v-1-13-1.pkt) | Yes          | Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-13-2](sctp-as-i-1-13-2.pkt) | Yes (Note 13)| Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt) | Yes (Note 14)| Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-14-2](sctp-as-i-1-14-2.pkt) | Yes (Note 15)| Yes       | No          | Passed          | Passed          |
-|[sctp-as-i-1-15](sctp-as-i-1-15.pkt)     | Yes (Note 16)| No        | No          | Unknown         | Unknown         |
+| Name                                    | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux    |
+|:----------------------------------------|:------------:|:---------:|:-----------:|:--------------:|:---------------:|
+|[sctp-as-v-1-1-1](sctp-as-v-1-1-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-1-2](sctp-as-v-1-1-2.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-2-1](sctp-as-i-1-2-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt)   | Yes          | Yes       | No          | Passed         | Failed (Note 1) |
+|[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt)   | Yes          | Yes       | No          | Passed         | Failed (Note 2) |
+|[sctp-as-i-1-4](sctp-as-i-1-4.pkt)       | No (Note 3)  | Yes       | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt)   | No (Note 4)  | Yes       | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt)   | No (Note 4)  | Yes       | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-6-1](sctp-as-v-1-6-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-6-2](sctp-as-v-1-6-2.pkt)   | Yes (Note 5) | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-7-1](sctp-as-v-1-7-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-7-2](sctp-as-i-1-7-2.pkt)   | Yes (Note 6) | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-7-3](sctp-as-v-1-7-3.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-7-4](sctp-as-i-1-7-4.pkt)   | Yes (Note 7) | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-7-5](sctp-as-v-1-7-5.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-8-1](sctp-as-i-1-8-1.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt)   | Yes          | Yes       | No          | Failed (Note 9)| Passed          |
+|[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt)   | Yes          | Yes       | No          | Passed (Note 9)| Passed          |
+|[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-10-2](sctp-as-v-1-10-2.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-11-1](sctp-as-v-1-11-1.pkt) | Yes (Note 10)| No        | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-11-2](sctp-as-v-1-11-2.pkt) | Yes (Note 10)| No        | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-12-1](sctp-as-v-1-12-1.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-12-2](sctp-as-i-1-12-2.pkt) | Yes          | Yes       | No          | Passed         | Passed (Note 11)|
+|[sctp-as-v-1-13-1](sctp-as-v-1-13-1.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-13-2](sctp-as-i-1-13-2.pkt) | Yes (Note 12)| Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt) | Yes (Note 13)| Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-14-2](sctp-as-i-1-14-2.pkt) | Yes (Note 14)| Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-15](sctp-as-i-1-15.pkt)     | Yes (Note 15)| No        | No          | Unknown        | Unknown         |
 
 # Notes
 
@@ -45,14 +45,13 @@ The following table show the current status of the Implementation. Once the impl
 3. There is no way in the socket API to limit the number of SCTP associations. Therefore this test is not applicable. It shouldn't be mandatory...
 4. packetdrill does not provide an infrastructure for testing the randomness of the choosen initiate tags. Therefore these tests can't be realized with packetdrill.
 5. The test specification requires to send a cookie_preservative parameter in the INIT-ACK chunk. However, this parameter is not allowed in the INIT-ACK chunk as described in [RFC 4960](https://tools.ietf.org/html/rfc4960#section-3.3.3) and doesn't make sense.
-6. packetdrill is missing support for using getsockopt() for SCTP_STATUS (tracked in [issue 25](https://github.com/nplab/packetdrill/issues/25) and [issue 29](https://github.com/nplab/packetdrill/issues/29)).
-7. It is assumed that an INIT chunk indicating the number of outgoing streams of 0 is responded with an ABORT chunk indicating an invalid mandatory parameter.
-8. FreeBSD sends the ABORT with the T-bit set whereas Linux sends the ABORT with the T-bit cleared.
-9. The sysctl's are platform dependent, of course. FreeBSD sends the cookie parameter as the last parameter in the INIT-ACK chunk, whereas Linux sends it as the first parameter.
-10. FreeBSD sends an ABORT chunk in response to the INIT chunk. This is tracked as [issue 5](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/5).
-11. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28).
-12. It looks like Linux is sending multiple packets with ABORT chunks if multiple problems with the INIT-ACK exist (missing mandatory parameter (cookie missing) and unresolvable address (hostname parameter).
-13. The test description doesn't make sense. The supported address types parameter should be ignored. See the implementation note in the last paragraph of [RFC 4960](https://tools.ietf.org/html/rfc4960#section-5.1.2). Therefore it is tested that if only IPv6 support is announced but IPv4 is used, the association setup is successful.
-14. It is assumed that the SUT sends an ABORT using an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't. It should be noted that there is no TCB to be destroyed.
-15. It is assumed that the SUT sends an ABORT using an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't. Furthermore it should be noted that FreeBSD indicates ETIMEDOUT at the socket layer, whereas Linux provides ECONNREFUSED.
-16. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28). Furthermore sctp_connectx() needs to be supported by packetdrill. This is tracked in [issue 30](https://github.com/nplab/packetdrill/issues/30).
+6. It is assumed that an INIT chunk indicating the number of outgoing streams of 0 is responded with an ABORT chunk indicating an invalid mandatory parameter.
+7. FreeBSD sends the ABORT with the T-bit set whereas Linux sends the ABORT with the T-bit cleared.
+8. The sysctl's are platform dependent, of course. FreeBSD sends the cookie parameter as the last parameter in the INIT-ACK chunk, whereas Linux sends it as the first parameter.
+9. FreeBSD sends an ABORT chunk in response to the INIT chunk. This is tracked as [issue 5](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/5).
+10. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28).
+11. It looks like Linux is sending multiple packets with ABORT chunks if multiple problems with the INIT-ACK exist (missing mandatory parameter (cookie missing) and unresolvable address (hostname parameter).
+12. The test description doesn't make sense. The supported address types parameter should be ignored. See the implementation note in the last paragraph of [RFC 4960](https://tools.ietf.org/html/rfc4960#section-5.1.2). Therefore it is tested that if only IPv6 support is announced but IPv4 is used, the association setup is successful.
+13. It is assumed that the SUT sends an ABORT using an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't. It should be noted that there is no TCB to be destroyed.
+14. It is assumed that the SUT sends an ABORT using an error cause indicating an invalid mandatory parameter. FreeBSD sets the T-bit of the ABORT chunk, Linux doesn't. Furthermore it should be noted that FreeBSD indicates ETIMEDOUT at the socket layer, whereas Linux provides ECONNREFUSED.
+15. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28). Furthermore sctp_connectx() needs to be supported by packetdrill. This is tracked in [issue 30](https://github.com/nplab/packetdrill/issues/30).
