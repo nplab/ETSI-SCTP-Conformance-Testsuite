@@ -40,6 +40,8 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
+// Turn off the sending of HEARTBEATs.
++0.0 setsockopt(3, IPPROTO_SCTP, SCTP_PEER_ADDR_PARAMS, {spp_address=..., spp_hbinterval=0, spp_pathmaxrxt=0, spp_pathmtu=0, spp_flags=SPP_HB_DISABLE|SPP_PMTUD_DISABLE, spp_ipv6_flowlabel=0, spp_dscp=0}, 152) = 0
 // Send the first message and trigger a timeout
 +0.0 write(3, ..., 1452) = 1452
 +0.0 > sctp: DATA[flgs=BE, len=1468, tsn=1, sid=0, ssn=0, ppid=0]
