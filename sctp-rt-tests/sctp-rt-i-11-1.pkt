@@ -26,14 +26,13 @@
 //
 
 // Allow for variation of timers
---tolerance_usecs=50000
+--tolerance_usecs=75000
 
 // Create a non-blocking 1-to-1 style socket
  0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
 +0.0 fcntl(3, F_GETFL) = 0x02 (flags O_RDWR)
 +0.0 fcntl(3, F_SETFL, O_RDWR | O_NONBLOCK) = 0
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_RTOINFO, {srto_initial=100, srto_max=800, srto_min=100}, 16) = 0
-//+0.0 setsockopt(3, IPPROTO_SCTP, SCTP_PEER_ADDR_PARAMS, {spp_address=..., spp_hbinterval=0, spp_pathmaxrxt=0, spp_pathmtu=0, spp_flags=SPP_HB_DISABLE|SPP_PMTUD_DISABLE, spp_ipv6_flowlabel=0, spp_dscp=0}, 152) = 0
 // Trigger the active associtation setup
 +0.1 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
 +0.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
@@ -42,7 +41,6 @@
 +0.0 < sctp: COOKIE_ACK[flgs=0]
 // Check if the setup was sucessful
 +0.0 getsockopt(3, SOL_SOCKET, SO_ERROR, [0], [4]) = 0
-+0.0 getsockopt(3, IPPROTO_SCTP, SCTP_PEER_ADDR_PARAMS, {spp_address=..., spp_hbinterval=..., spp_pathmaxrxt=..., spp_pathmtu=..., spp_flags=SPP_HB_ENABLE|SPP_PMTUD_ENABLE, spp_ipv6_flowlabel=..., spp_dscp=...}, [152]) = 0
 +0.0 setsockopt(3, IPPROTO_SCTP, SCTP_PEER_ADDR_PARAMS, {spp_address=..., spp_hbinterval=0, spp_pathmaxrxt=0, spp_pathmtu=0, spp_flags=SPP_HB_DISABLE|SPP_PMTUD_DISABLE, spp_ipv6_flowlabel=0, spp_dscp=0}, 152) = 0
 // Trigger the sending of a DATA chunk
 +0.0 write(3, ..., 1000) = 1000
