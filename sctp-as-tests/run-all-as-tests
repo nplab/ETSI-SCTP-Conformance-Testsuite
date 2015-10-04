@@ -37,7 +37,6 @@ set testcases = (sctp-as-v-1-1-1  \
                  sctp-as-i-1-4    \
                  sctp-as-v-1-5-1  \
                  sctp-as-v-1-5-1  \
-                 sctp-as-i-1-2    \
                  sctp-as-v-1-6-1  \
                  sctp-as-v-1-6-2  \
                  sctp-as-v-1-7-1  \
