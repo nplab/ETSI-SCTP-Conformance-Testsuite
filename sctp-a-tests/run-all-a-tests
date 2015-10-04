@@ -43,6 +43,7 @@ printf "Name                                        Verdict\n"
 printf "===================================================\n"
 foreach testcase ($testcases)
   printf "%-40.40s " $testcase
+  printf "\033[33m%10s\033[0m" "RUNNING"
   if (-f ${rootdir}/${testcase}-$os.pkt) then
     $packetdrill ${rootdir}/${testcase}-$os.pkt >& /dev/null
     set result = $status
@@ -54,6 +55,7 @@ foreach testcase ($testcases)
   else
     set found = 0
   endif
+  printf "\b\b\b\b\b\b\b\b\b\b"
   if ($found == 1) then
     if ($result == 0) then
       @ passed++
