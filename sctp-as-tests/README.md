@@ -2,41 +2,41 @@
 
 The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
-| Name                                    | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux    |
-|:----------------------------------------|:------------:|:---------:|:-----------:|:--------------:|:---------------:|
-|[sctp-as-v-1-1-1](sctp-as-v-1-1-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-1-2](sctp-as-v-1-1-2.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-2-1](sctp-as-i-1-2-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt)   | Yes          | Yes       | No          | Passed         | Failed (Note 1) |
-|[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt)   | Yes          | Yes       | No          | Passed         | Failed (Note 2) |
-|[sctp-as-i-1-4](sctp-as-i-1-4.pkt)       | No (Note 3)  | Yes       | No          | Unknown        | Unknown         |
-|[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt)   | No (Note 4)  | Yes       | No          | Unknown        | Unknown         |
-|[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt)   | No (Note 4)  | Yes       | No          | Unknown        | Unknown         |
-|[sctp-as-v-1-6-1](sctp-as-v-1-6-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-6-2](sctp-as-v-1-6-2.pkt)   | Yes (Note 5) | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-7-1](sctp-as-v-1-7-1.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-7-2](sctp-as-i-1-7-2.pkt)   | Yes (Note 6) | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-7-3](sctp-as-v-1-7-3.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-7-4](sctp-as-i-1-7-4.pkt)   | Yes (Note 7) | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-7-5](sctp-as-v-1-7-5.pkt)   | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-8-1](sctp-as-i-1-8-1.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
-|[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
-|[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
-|[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt)   | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
-|[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt)   | Yes          | Yes       | No          | Failed (Note 9)| Passed          |
-|[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt)   | Yes          | Yes       | No          | Passed (Note 9)| Passed          |
-|[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-10-2](sctp-as-v-1-10-2.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-v-1-11-1](sctp-as-v-1-11-1.pkt) | Yes (Note 10)| No        | No          | Unknown        | Unknown         |
-|[sctp-as-v-1-11-2](sctp-as-v-1-11-2.pkt) | Yes (Note 10)| No        | No          | Unknown        | Unknown         |
-|[sctp-as-v-1-12-1](sctp-as-v-1-12-1.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-12-2](sctp-as-i-1-12-2.pkt) | Yes          | Yes       | No          | Passed         | Passed (Note 11)|
-|[sctp-as-v-1-13-1](sctp-as-v-1-13-1.pkt) | Yes          | Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-13-2](sctp-as-i-1-13-2.pkt) | Yes (Note 12)| Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt) | Yes (Note 13)| Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-14-2](sctp-as-i-1-14-2.pkt) | Yes (Note 14)| Yes       | No          | Passed         | Passed          |
-|[sctp-as-i-1-15](sctp-as-i-1-15.pkt)     | Yes (Note 15)| No        | No          | Unknown        | Unknown         |
+| Name                                                                                                                                       | Implemented  | Finalized | OS specific | Result FreeBSD | Result Linux    |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:---------:|:-----------:|:--------------:|:---------------:|
+|[sctp-as-v-1-1-1](sctp-as-v-1-1-1.pkt   "Performing an active association setup")                                                           | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-1-2](sctp-as-v-1-1-2.pkt   "Performing a passive association setup")                                                           | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-2-1](sctp-as-i-1-2-1.pkt   "Retransmissions of INIT chunks")                                                                   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-2-2](sctp-as-i-1-2-2.pkt   "Retransmissions of COOKIE-ECHO chunks")                                                            | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-3-1](sctp-as-i-1-3-1.pkt   "Handling of excessive retransmissions of INIT chunks")                                             | Yes          | Yes       | No          | Passed         | Failed (Note 1) |
+|[sctp-as-i-1-3-2](sctp-as-i-1-3-2.pkt   "Handling of excessive retransmissions of COOKIE-ECHO chunks")                                      | Yes          | Yes       | No          | Passed         | Failed (Note 2) |
+|[sctp-as-i-1-4](sctp-as-i-1-4.pkt       "Ensuring no resource allocation on reception of INIT chunk")                                       | No (Note 3)  | Yes       | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-5-1](sctp-as-v-1-5-1.pkt   "Using random initate tags for INIT chunks")                                                        | No (Note 4)  | Yes       | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-5-2](sctp-as-v-1-5-2.pkt   "Using random initate tags for INIT-ACK chunks")                                                    | No (Note 4)  | Yes       | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-6-1](sctp-as-v-1-6-1.pkt   "Handling of INIT chunk with various parameters")                                                   | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-6-2](sctp-as-v-1-6-2.pkt   "Handling of INIT-ACK chunk with various parameters")                                               | Yes (Note 5) | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-7-1](sctp-as-v-1-7-1.pkt   "Handling of INIT chunks with IS less then configured OS in the CLOSED state")                      | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-7-2](sctp-as-i-1-7-2.pkt   "Handling of INIT chunks with OS 0 in the CLOSED state")                                            | Yes (Note 6) | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-7-3](sctp-as-v-1-7-3.pkt   "Handling of INIT-ACK chunks with IS less than OS of the INIT in the COOKIE-WAIT state")            | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-7-4](sctp-as-i-1-7-4.pkt   "Handling of INIT-ACK chunks with outgoing stream 0 in the COOKIE-WAIT state")                      | Yes (Note 7) | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-7-5](sctp-as-v-1-7-5.pkt   "Ensuring the support of 2 incoming and outgoing streams")                                          | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-8-1](sctp-as-i-1-8-1.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 11)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 00)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 11)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 10)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
+|[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt   "Handling of INIT chunks with known addresses in the ESTABLSISHED state")                           | Yes          | Yes       | No          | Failed (Note 9)| Passed          |
+|[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt   "Handling of INIT chunks with new addresses in the ESTABLSISHED state")                             | Yes          | Yes       | No          | Passed (Note 9)| Passed          |
+|[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt "Handling of INIT chunks with no address parameters in the CLOSED state")                           | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-10-2](sctp-as-v-1-10-2.pkt "Handling of INIT-ACK chunks with no address parameters in the COOKIE-WAIT state")                  | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-v-1-11-1](sctp-as-v-1-11-1.pkt "Handling of INIT chunks with one or more address parameters in the CLOSED state")                  | Yes (Note 10)| No        | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-11-2](sctp-as-v-1-11-2.pkt "Handling of INIT-ACK chunks with one or more address parameters in the COOKIE-WAIT state")         | Yes (Note 10)| No        | No          | Unknown        | Unknown         |
+|[sctp-as-v-1-12-1](sctp-as-v-1-12-1.pkt "Handling of INIT chunks with one hostname address parameter in the CLOSED state")                  | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-12-2](sctp-as-i-1-12-2.pkt "Handling of INIT-ACK chunks with one hostname address parameter in the COOKIE-WAIT state")         | Yes          | Yes       | No          | Passed         | Passed (Note 11)|
+|[sctp-as-v-1-13-1](sctp-as-v-1-13-1.pkt "Handling of INIT chunks with a supported address types parameter (good case) in the CLOSED state") | Yes          | Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-13-2](sctp-as-i-1-13-2.pkt "Handling of INIT chunks with a supported address types parameter (bad case) in the CLOSED state")  | Yes (Note 12)| Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-14-1](sctp-as-i-1-14-1.pkt "Handling of INIT chunks with initiate tag 0 in the CLOSED state")                                  | Yes (Note 13)| Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-14-2](sctp-as-i-1-14-2.pkt "Handling of INIT-ACK chunks with initiate tag 0 in the COOKIE-WAIT state")                         | Yes (Note 14)| Yes       | No          | Passed         | Passed          |
+|[sctp-as-i-1-15](sctp-as-i-1-15.pkt     "Using all peer addresses for INIT (re)transmissions")                                              | Yes (Note 15)| No        | No          | Unknown        | Unknown         |
 
 # Notes
 
