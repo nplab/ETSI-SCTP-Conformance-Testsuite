@@ -41,11 +41,21 @@ set passed = 0
 set failed = 0
 set run = 0
 set skipped = 0
+set first = 1
 
 printf "Name                                        Verdict\n"
 printf "===================================================\n"
 foreach testcase ($testcases)
   printf "%-40.40s " $testcase
+  if ($first == 0) then
+    if ($delay != 0) then
+      printf "\033[33m%10s\033[0m" "WAITING"
+      sleep $delay
+      printf "\b\b\b\b\b\b\b\b\b\b"
+    endif
+  else
+    set first = 0
+  endif
   printf "\033[33m%10s\033[0m" "RUNNING"
   if (-f ${rootdir}/${testcase}-$os.pkt) then
     $packetdrill ${rootdir}/${testcase}-$os.pkt >& /dev/null
@@ -72,8 +82,6 @@ foreach testcase ($testcases)
     printf "\033[34m%10s\033[0m\n" "SKIPPED"
     @ skipped++
   endif
-
-  sleep $delay
 end
 printf "===================================================\n"
 printf "Summary: Number of tests run:     %3u\n" $run
