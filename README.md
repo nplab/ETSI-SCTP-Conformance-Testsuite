@@ -9,7 +9,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 |:-------------------------------------------------------------------------------|:-----------------------:|:-----------:|:---------:|
 | [Association Setup (AS)](sctp-as-tests/README.md)                              | 33                      |  30 (Note 1)|  24       |
 | [Association Termination (AT)](sctp-at-tests/README.md)                        | 16                      |  16         |  16       |
-| [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)                     | 10                      |  10         |  5        |
+| [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)                     | 10                      |  10         |  9        |
 | [Duplicate Messages (DM)](sctp-dm-tests/README.md)                             | 15                      |  15         |  14       |
 | [Fault Handling (FH)](sctp-fh-tests/README.md)                                 | 8                       |  8          |  3        |
 | [Error (E)](sctp-e-tests/README.md)                                            | 6                       |  6          |  6        |
