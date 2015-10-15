@@ -20,4 +20,4 @@ The following table show the current status of the Implementation. Once the impl
 2. FreeBSD silently discards the malformed INIT-ACK chunk and retransmits the INIT chunk. Linux responds with an ABORT chunk indicating a protocol violation and signals ECONNREFUSED in the socket layer.
 3. It is assumed that the SUT uses a cookie lifetime of 60 seconds.
 4. packetdrill lacks the ability to specifiy arbitrary packets. This is tracked in [issue 35](https://github.com/nplab/packetdrill/issues/35).
-5. FreeBSD accepts a SHUTDOWN-ACK chunk with a wrong verification tag. This is tracked in [issue 10](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/10).
+5. FreeBSD accepts a packet containing a SHUTDOWN-ACK chunk with a wrong verification tag. This is tracked in [issue 10](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/10).
