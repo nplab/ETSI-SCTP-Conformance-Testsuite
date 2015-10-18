@@ -1,6 +1,6 @@
 # Status of the Invalid Message Handling Tests
 
-The following table show the current status of the Implementation. Once the implementation is completed, the implementation specific columns will be removed.
+The following table show the current status of the implementation. Once the implementation is completed, the implementation specific columns will be removed.
 
 | Name                                                                                                                                                           | Implemented  | Finalized   | OS specific | Result FreeBSD  | Result Linux |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:-----------:|:-----------:|:---------------:|:------------:|
