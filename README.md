@@ -20,7 +20,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 | [Retransmission Timer (RT)](sctp-rt-tests/README.md)                           | 3                       |  3          |  2 (Note 3) |
 
 # Notes
-1. One test is not applicable and two tests are not implementable within packetdrill.
+1. One test is not applicable since the maximum number of associations supported by the SCTP stack can't be controlled via the socket API. Two tests are not implementable within packetdrill since checking the randomness of the initiate tags is not supported.
 2. Three tests are not applicable, since the socket layer does not have a message size limit for receiving messages. Partial delivery is used in the case the message can't be delivered at once.
 3. Support for multi-homing required in packetdrill. This is currently missing.
 
