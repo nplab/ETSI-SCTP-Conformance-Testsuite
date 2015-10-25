@@ -21,7 +21,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 
 # Notes
 1. One test is not applicable and two tests are not implementable within packetdrill.
-2. Three tests are not applicable.
+2. Three tests are not applicable, since the socket layer does not have a message size limit for receiving messages. Partial delivery is used in the case the message can't be delivered at once.
 
 # Fixes for FreeBSD
 1. Fix for [sctp-d-i-8-11](sctp-d-tests/sctp-d-i-8-11.pkt): [r286206](https://svnweb.freebsd.org/changeset/base/286206).
