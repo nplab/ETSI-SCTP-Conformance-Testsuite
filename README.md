@@ -31,3 +31,4 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 4. Fix for [sctp-bdc-i-7-1](sctp-bdc-tests/sctp-bdc-i-7-1.pkt): [r287535](https://svnweb.freebsd.org/changeset/base/287535).
 5. Fix for [sctp-e-i-6-5](sctp-e-i-6-5.pkt): [r287669](https://svnweb.freebsd.org/changeset/base/287669).
 6. Fix for [sctp-e-i-6-4](sctp-e-i-6-4.pkt): [r287717](https://svnweb.freebsd.org/changeset/base/287717) and [r287719](https://svnweb.freebsd.org/changeset/base/287719).
+7. Fix for [sctp-imh-i-3-3](sctp-imh-i-3-3.pkt): [r290023](https://svnweb.freebsd.org/changeset/base/290023).
