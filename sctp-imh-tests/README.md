@@ -6,7 +6,7 @@ The following table show the current status of the implementation. Once the impl
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:-----------:|:-----------:|:---------------:|:------------:|
 |[sctp-imh-i-3-1](sctp-imh-i-3-1.pkt   "Handling of an INIT chunk being too small in the CLOSED state")                                                          | Yes (Note 1) | Yes         | No          | Passed          | Passed       |
 |[sctp-imh-i-3-2](sctp-imh-i-3-2.pkt   "Handling of an INIT-ACK chunk being too small in the COOKIE-WAIT state")                                                 | Yes          | Yes         | Yes (Note 2)| Passed          | Passed       |
-|[sctp-imh-i-3-3](sctp-imh-i-3-3.pkt   "Handling of a packet with a wrong verification tag containg a COOKIE-ECHO chunk in the CLOSED state")                    | Yes          | Yes         | No          | Failed (Note 3) | Passed       |
+|[sctp-imh-i-3-3](sctp-imh-i-3-3.pkt   "Handling of a packet with a wrong verification tag containg a COOKIE-ECHO chunk in the CLOSED state")                    | Yes          | Yes         | No          | Passed (Note 3) | Passed       |
 |[sctp-imh-i-3-4](sctp-imh-i-3-4.pkt   "Handling of a packet with a wrong checksum containg an INIT chunk in the CLOSED state")                                  | Yes          | Yes         | No          | Passed          | Passed       |
 |[sctp-imh-i-3-5](sctp-imh-i-3-5.pkt   "Handling of a COOKIE-ECHO chunk with a wrong cookie in the CLOSED state")                                                | Yes          | Yes         | No          | Passed          | Passed       |
 |[sctp-imh-i-3-6](sctp-imh-i-3-6.pkt   "Handling of a COOKIE-ECHO chunk with an expired cookie in the CLOSED state")                                             | Yes (Note 4) | Yes         | No          | Passed          | Passed       |
@@ -18,7 +18,7 @@ The following table show the current status of the implementation. Once the impl
 # Notes
 1. It is assumed that the SUT does not send an ABORT chunk in response to a malformed INIT chunk.
 2. FreeBSD silently discards the malformed INIT-ACK chunk and retransmits the INIT chunk. Linux responds with an ABORT chunk indicating a protocol violation and signals ECONNREFUSED in the socket layer.
-3. FreeBSD accepts a packet containing a COOKIE-ECHO chunk with a wrong verification tag. This is tracked in [issue 10](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/10).
+3. Fix for [sctp-imh-i-3-3](sctp-imh-i-3-3.pkt): [r290023](https://svnweb.freebsd.org/changeset/base/290023).
 4. It is assumed that the SUT uses a cookie lifetime of 60 seconds.
 5. packetdrill lacks the ability to specifiy arbitrary packets. This is tracked in [issue 35](https://github.com/nplab/packetdrill/issues/35).
 6. FreeBSD accepts a packet containing a SHUTDOWN-ACK chunk with a wrong verification tag by responding with a SHUTDOWN-COMPLETE chunk and the T-bit set. This is tracked in [issue 11](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/11).
