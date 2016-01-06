@@ -7,7 +7,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 
 | Main Functionality                                                             | Number of Test Purposes | Implemented | Finalized   |
 |:-------------------------------------------------------------------------------|:-----------------------:|:-----------:|:-----------:|
-| [Association Setup (AS)](sctp-as-tests/README.md)                              | 33                      |  30 (Note 1)|  24         |
+| [Association Setup (AS)](sctp-as-tests/README.md)                              | 33                      |  30 (Note 1)|  27 (Note 3)|
 | [Association Termination (AT)](sctp-at-tests/README.md)                        | 16                      |  16         |  16         |
 | [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)                     | 10                      |  10         |  9          |
 | [Duplicate Messages (DM)](sctp-dm-tests/README.md)                             | 15                      |  15         |  14         |
@@ -22,7 +22,7 @@ The testsuite contains of 121 test purposes for the following main functionaliti
 # Notes
 1. One test is not applicable since the maximum number of associations supported by the SCTP stack can't be controlled via the socket API. Two tests are not implementable within packetdrill since checking the randomness of the initiate tags is not supported.
 2. Three tests are not applicable, since the socket layer does not have a message size limit for receiving messages. Partial delivery is used in the case the message can't be delivered at once.
-3. Support for multi-homing required in packetdrill. This is currently missing.
+3. Support for multi-homing is required in packetdrill. This is currently missing.
 
 # Fixes for FreeBSD
 1. Fix for [sctp-d-i-8-11](sctp-d-tests/sctp-d-i-8-11.pkt): [r286206](https://svnweb.freebsd.org/changeset/base/286206).
