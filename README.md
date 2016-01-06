@@ -4,7 +4,7 @@ An implementation of the SCTP Conformance Tests for packetdrill according to
 The initial focus is on supporting FreeBSD and Linux.
 
 The testsuite contains of 121 test purposes. Four of those are not applicable to SCTP implementations using the socket API defined in [RFC 6458](https://tools.ietf.org/html/rfc6458) and two test purposes can't be implemented in packetdrill due to conceptual limits.
-Therefore 115 test puposes can be realized with packetdrill.
+Therefore, 115 test purposes can be implemented with packetdrill.
 
 The following table shows the status of the test purposes splitted up in the 11 main functionalities:
 
