@@ -8,19 +8,19 @@ Therefore 115 test puposes can be realized with packetdrill.
 
 The following table shows the status of the test purposes splitted up in the 11 main functionalities:
 
-| Main Functionality                                                             | Number of Test Purposes | Implemented | Finalized   |
-|:-------------------------------------------------------------------------------|:-----------------------:|:-----------:|:-----------:|
-| [Association Setup (AS)](sctp-as-tests/README.md)                              | 33                      |  30 (Note 1)|  27 (Note 3)|
-| [Association Termination (AT)](sctp-at-tests/README.md)                        | 16                      |  16         |  16         |
-| [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)                     | 10                      |  10         |  9  (Note 4)|
-| [Duplicate Messages (DM)](sctp-dm-tests/README.md)                             | 15                      |  15         |  14 (Note 5)|
-| [Fault Handling (FH)](sctp-fh-tests/README.md)                                 | 8                       |  8          |  3  (Note 5)|
-| [Error (E)](sctp-e-tests/README.md)                                            | 6                       |  6          |  6          |
-| [Bundling of Data Chunks with Control Chunks (BDC)](sctp-bdc-tests/README.md)  | 8                       |  8          |  8          |
-| [Data (D)](sctp-d-tests/README.md)                                             | 15                      |  12 (Note 2)|  11 (Note 3)|
-| [Acknowledgement (A)](sctp-a-tests/README.md)                                  | 3                       |  3          |  3          |
-| [Miscellaneous (M)](sctp-m-tests/README.md)                                    | 4                       |  4          |  4          |
-| [Retransmission Timer (RT)](sctp-rt-tests/README.md)                           | 3                       |  3          |  2 (Note 3) |
+| Main Functionality                                                             | Number of Test Purposes | Implemented | Finalized      |
+|:-------------------------------------------------------------------------------|:-----------------------:|:-----------:|:--------------:|
+| [Association Setup (AS)](sctp-as-tests/README.md)                              | 33                      |  30 (Note 1)|  27 (Note 3)   |
+| [Association Termination (AT)](sctp-at-tests/README.md)                        | 16                      |  16         |  16            |
+| [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)                     | 10                      |  10         |  9  (Note 4)   |
+| [Duplicate Messages (DM)](sctp-dm-tests/README.md)                             | 15                      |  15         |  14 (Note 5)   |
+| [Fault Handling (FH)](sctp-fh-tests/README.md)                                 | 8                       |  8          |  3  (Note 5, 6)|
+| [Error (E)](sctp-e-tests/README.md)                                            | 6                       |  6          |  6             |
+| [Bundling of Data Chunks with Control Chunks (BDC)](sctp-bdc-tests/README.md)  | 8                       |  8          |  8             |
+| [Data (D)](sctp-d-tests/README.md)                                             | 15                      |  12 (Note 2)|  11 (Note 3)   |
+| [Acknowledgement (A)](sctp-a-tests/README.md)                                  | 3                       |  3          |  3             |
+| [Miscellaneous (M)](sctp-m-tests/README.md)                                    | 4                       |  4          |  4             |
+| [Retransmission Timer (RT)](sctp-rt-tests/README.md)                           | 3                       |  3          |  2 (Note 3)    |
 
 # Notes
 1. One test is not applicable since the maximum number of associations supported by the SCTP stack can't be controlled via the socket API. Two tests are not implementable within packetdrill since checking the randomness of the initiate tags is not supported.
@@ -28,6 +28,8 @@ The following table shows the status of the test purposes splitted up in the 11 
 3. Support for multi-homing is required in packetdrill. This is currently missing and tracked in [packetdrill issue 28](https://github.com/nplab/packetdrill/issues/28).
 4. Support for injecting arbitrary packets is required in packetdrill. This is currenty missing and tracked in [packetdrill issue 35](https://github.com/nplab/packetdrill/issues/35).
 5. Support for injecting OOTB packets is required in packetdrill. This is currenty missing and tracked in [packetdrill issue 24](https://github.com/nplab/packetdrill/issues/24).
+6. Support for injecting packets with non-unicast source addresses is required in packetdrill. This is currenty missing and tracked in [packetdrill issue 26](https://github.com/nplab/packetdrill/issues/26).
+
 
 # Fixes for FreeBSD
 1. Fix for [sctp-d-i-8-11](sctp-d-tests/sctp-d-i-8-11.pkt): [r286206](https://svnweb.freebsd.org/changeset/base/286206).
