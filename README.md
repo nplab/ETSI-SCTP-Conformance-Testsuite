@@ -39,3 +39,7 @@ The following table shows the status of the test purposes splitted up in the 11 
 5. Fix for [sctp-e-i-6-5](sctp-e-i-6-5.pkt): [r287669](https://svnweb.freebsd.org/changeset/base/287669).
 6. Fix for [sctp-e-i-6-4](sctp-e-i-6-4.pkt): [r287717](https://svnweb.freebsd.org/changeset/base/287717) and [r287719](https://svnweb.freebsd.org/changeset/base/287719).
 7. Fix for [sctp-imh-i-3-3](sctp-imh-i-3-3.pkt): [r290023](https://svnweb.freebsd.org/changeset/base/290023).
+
+# Issues for FreeBSD
+
+These are tracked in [Issues](https://github.com/sctplab/SCTP_NKE_Yosemite/milestones/ETSI%20Conformance%20Tests).
