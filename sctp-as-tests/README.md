@@ -24,7 +24,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-as-i-1-8-2](sctp-as-i-1-8-2.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 00)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
 |[sctp-as-i-1-8-3](sctp-as-i-1-8-3.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 11)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
 |[sctp-as-i-1-8-4](sctp-as-i-1-8-4.pkt   "Handling of INIT chunks with unknown parameter (highest order bits 10)")                           | Yes          | Yes       | Yes (Note 8)| Passed         | Passed          |
-|[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt   "Handling of INIT chunks with known addresses in the ESTABLSISHED state")                           | Yes          | Yes       | No          | Failed (Note 9)| Passed          |
+|[sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt   "Handling of INIT chunks with known addresses in the ESTABLSISHED state")                           | Yes          | Yes       | No          | Passed (Note 9)| Passed          |
 |[sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt   "Handling of INIT chunks with new addresses in the ESTABLSISHED state")                             | Yes          | Yes       | No          | Passed (Note 9)| Passed          |
 |[sctp-as-v-1-10-1](sctp-as-v-1-10-1.pkt "Handling of INIT chunks with no address parameters in the CLOSED state")                           | Yes          | Yes       | No          | Passed         | Passed          |
 |[sctp-as-v-1-10-2](sctp-as-v-1-10-2.pkt "Handling of INIT-ACK chunks with no address parameters in the COOKIE-WAIT state")                  | Yes          | Yes       | No          | Passed         | Passed          |
@@ -48,7 +48,7 @@ The following table show the current status of the Implementation. Once the impl
 6. It is assumed that an INIT chunk indicating the number of outgoing streams of 0 is responded with an ABORT chunk indicating an invalid mandatory parameter.
 7. FreeBSD sends the ABORT with the T-bit set whereas Linux sends the ABORT with the T-bit cleared.
 8. The sysctl's are platform dependent, of course. FreeBSD sends the cookie parameter as the last parameter in the INIT-ACK chunk, whereas Linux sends it as the first parameter.
-9. FreeBSD sends an ABORT chunk in response to the INIT chunk. This is tracked as [issue 5](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/5).
+9. Fix for [sctp-as-o-1-9-1](sctp-as-o-1-9-1.pkt) and [sctp-as-o-1-9-2](sctp-as-o-1-9-2.pkt): [r294057](https://svnweb.freebsd.org/changeset/base/294057).
 10. Requires multi-homing support (the peer needs more than one address) of packetdrill. This is tracked in [issue 28](https://github.com/nplab/packetdrill/issues/28).
 11. It looks like Linux is sending multiple packets with ABORT chunks if multiple problems with the INIT-ACK exist (missing mandatory parameter (cookie missing) and unresolvable address (hostname parameter)).
 12. The test description doesn't make sense. The supported address types parameter should be ignored. See the implementation note in the last paragraph of [RFC 4960](https://tools.ietf.org/html/rfc4960#section-5.1.2). Therefore it is tested that if only IPv6 support is announced but IPv4 is used, the association setup is successful.
