@@ -35,9 +35,10 @@ The following table shows the status of the test purposes splitted up in the 11 
 2. Fix for [sctp-at-i-2-5](sctp-at-tests/sctp-at-i-2-5.pkt): [r287294](https://svnweb.freebsd.org/changeset/base/287294).
 3. Fix for [sctp-at-i-2-7-2](sctp-at-tests/sctp-at-i-2-7-2.pkt): [r287444](https://svnweb.freebsd.org/changeset/base/287444).
 4. Fix for [sctp-bdc-i-7-1](sctp-bdc-tests/sctp-bdc-i-7-1.pkt): [r287535](https://svnweb.freebsd.org/changeset/base/287535).
-5. Fix for [sctp-e-i-6-5](sctp-e-i-6-5.pkt): [r287669](https://svnweb.freebsd.org/changeset/base/287669).
-6. Fix for [sctp-e-i-6-4](sctp-e-i-6-4.pkt): [r287717](https://svnweb.freebsd.org/changeset/base/287717) and [r287719](https://svnweb.freebsd.org/changeset/base/287719).
-7. Fix for [sctp-imh-i-3-3](sctp-imh-i-3-3.pkt): [r290023](https://svnweb.freebsd.org/changeset/base/290023).
+5. Fix for [sctp-e-i-6-5](sctp-e-tests/sctp-e-i-6-5.pkt): [r287669](https://svnweb.freebsd.org/changeset/base/287669).
+6. Fix for [sctp-e-i-6-4](sctp-e-tests/sctp-e-i-6-4.pkt): [r287717](https://svnweb.freebsd.org/changeset/base/287717) and [r287719](https://svnweb.freebsd.org/changeset/base/287719).
+7. Fix for [sctp-imh-i-3-3](sctp-imh-tests/sctp-imh-i-3-3.pkt): [r290023](https://svnweb.freebsd.org/changeset/base/290023).
+8. Fix for [sctp-dm-o-4-2-1](sctp-dm-tests/sctp-dm-o-4-2-1.pkt), [sctp-dm-o-4-2-2](sctp-dm-tests/sctp-dm-o-4-2-2.pkt), [sctp-as-o-1-9-1](sctp-as-tests/sctp-as-o-1-9-1.pkt), [sctp-as-o-1-9-1](sctp-as-tests/sctp-as-o-1-9-1.pkt): [r294057](https://svnweb.freebsd.org/changeset/base/294057).
 
 # Issues for FreeBSD
 
