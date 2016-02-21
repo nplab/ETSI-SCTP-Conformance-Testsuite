@@ -25,7 +25,7 @@
 // SUCH DAMAGE.
 //
 
---tolerance_usecs=50000
+--tolerance_usecs=100000
 
 // Create a non-blocking 1-to-1 style socket
 +0.0 socket(..., SOCK_STREAM, IPPROTO_SCTP) = 3
