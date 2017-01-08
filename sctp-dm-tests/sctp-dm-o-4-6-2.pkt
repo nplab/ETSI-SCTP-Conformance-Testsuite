@@ -30,7 +30,7 @@
 +0.0 bind(3, ..., ...) = 0
 +0.0 listen(3, 1) = 0
 // Inject a SHUTDOWN chunk
-+0.1 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
++0.1 < sctp(tag=1): SHUTDOWN[flgs=0, cum_tsn=0]
 // Observe an ABORT chunk
 +0.0 > sctp: ABORT[flgs=T]
 +0.0 close(3) = 0
