@@ -13,7 +13,7 @@ The following table shows the status of the test purposes splitted up in the 11 
 | [Association Setup (AS)](sctp-as-tests/README.md)                              | 33                      |  30 (Note 1)|  27 (Note 3)   |
 | [Association Termination (AT)](sctp-at-tests/README.md)                        | 16                      |  16         |  16            |
 | [Invalid Message Handling (IMH)](sctp-imh-tests/README.md)                     | 10                      |  10         |  10            |
-| [Duplicate Messages (DM)](sctp-dm-tests/README.md)                             | 15                      |  15         |  14 (Note 4)   |
+| [Duplicate Messages (DM)](sctp-dm-tests/README.md)                             | 15                      |  15         |  15            |
 | [Fault Handling (FH)](sctp-fh-tests/README.md)                                 | 8                       |  8          |  3  (Note 4, 5)|
 | [Error (E)](sctp-e-tests/README.md)                                            | 6                       |  6          |  6             |
 | [Bundling of Data Chunks with Control Chunks (BDC)](sctp-bdc-tests/README.md)  | 8                       |  8          |  8             |
