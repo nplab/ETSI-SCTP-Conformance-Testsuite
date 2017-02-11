@@ -15,7 +15,7 @@ The following table show the current status of the Implementation. Once the impl
 
 # Notes
 
-1. After more than Max.Assoc.Retrans retransmissions, FreeBSD reports ECONNABORTED whereas Linux reports ETIMEDOUT.
+1. After more than Max.Assoc.Retrans retransmissions, FreeBSD reports `ECONNABORTED` whereas Linux reports `ETIMEDOUT`.
 2. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in response to OOTB ABORT chunks.
 3. It is assumed that the intention of the test case is to verify that ABORT chunks are not sent in response to OOTB SHUTDOWN-COMPLETE chunks.
 4. packetdrill doesn't support the specification of source addresses on a per packet base, which must also be non-uni-cast. This is tracked in [issue 26](https://github.com/nplab/packetdrill/issues/26).
