@@ -17,7 +17,7 @@ The following table show the current status of the implementation. Once the impl
 
 # Notes
 1. It is assumed that the SUT does not send an ABORT chunk in response to a malformed INIT chunk.
-2. FreeBSD silently discards the malformed INIT-ACK chunk and retransmits the INIT chunk. Linux responds with an ABORT chunk indicating a protocol violation and signals ECONNREFUSED in the socket layer.
+2. FreeBSD silently discards the malformed INIT-ACK chunk and retransmits the INIT chunk. Linux responds with an ABORT chunk indicating a protocol violation and signals `ECONNREFUSED` in the socket layer.
 3. Fix for [sctp-imh-i-3-3](sctp-imh-i-3-3.pkt): [r290023](https://svnweb.freebsd.org/changeset/base/290023).
 4. It is assumed that the SUT uses a cookie lifetime of 60 seconds.
 5. FreeBSD accepts a packet containing a SHUTDOWN-ACK chunk with a wrong verification tag by responding with a SHUTDOWN-COMPLETE chunk and the T-bit set. This is tracked in [issue 11](https://github.com/sctplab/SCTP_NKE_Yosemite/issues/11).
