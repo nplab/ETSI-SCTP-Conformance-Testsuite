@@ -49,7 +49,7 @@ echo $OPTARG
       delay="$OPTARG"
       ;;
     t)
-      timeout="$OPTARG"
+      timelimit="$OPTARG"
       ;;
     \?)
       echo "Unknown option: -$OPTARG" >&2
