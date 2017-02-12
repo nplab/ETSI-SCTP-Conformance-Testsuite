@@ -25,10 +25,6 @@
 # SUCH DAMAGE.
 #
 
-packetdrill=/usr/local/bin/packetdrill
-delay=1
-timelimit=10
-
 rootdir=`/usr/bin/dirname $0`
 passed=0
 failed=0
@@ -38,12 +34,39 @@ timedout=0
 killed=0
 first=1
 
+packetdrill=/usr/local/bin/packetdrill
+delay=1
+timelimit=10
+
+while getopts :d:p:t: opt; do
+echo $opt
+echo $OPTARG
+  case $opt in
+    p)
+      packetdrill="$OPTARG"
+      ;;
+    d)
+      delay="$OPTARG"
+      ;;
+    t)
+      timeout="$OPTARG"
+      ;;
+    \?)
+      echo "Unknown option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG provided without an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+shift $(( $OPTIND - 1 ))
+
 printf "Name                                                                    Verdict\n"
 printf "===============================================================================\n"
-for file
-do
-  for testcase in $(cat $file)
-  do
+for file ; do
+  for testcase in $(cat $file) ; do
     printf "%-68.68s " `/usr/bin/basename $testcase`
     if [ $first -eq 0 ] ; then
       if [ $delay -ne 0 ] ; then
@@ -74,44 +97,44 @@ do
     if [ $found -eq 1 ] ; then
       case $result in
         0)
-           passed=`expr $passed + 1`
-           if [ -t 1 ] ; then
-             printf "\033[32m%10s\033[0m\n" "PASSED"
-           else
-             printf "%10s\n" "PASSED"
-           fi
-           ;;
+          passed=`expr $passed + 1`
+          if [ -t 1 ] ; then
+            printf "\033[32m%10s\033[0m\n" "PASSED"
+          else
+            printf "%10s\n" "PASSED"
+          fi
+          ;;
         1)
-           failed=`expr $failed + 1`
-           if [ -t 1 ] ; then
-             printf "\033[31m%10s\033[0m\n" "FAILED"
-           else
-             printf "%10s\n" "FAILED"
-           fi
-           ;;
+          failed=`expr $failed + 1`
+          if [ -t 1 ] ; then
+            printf "\033[31m%10s\033[0m\n" "FAILED"
+          else
+            printf "%10s\n" "FAILED"
+          fi
+          ;;
         124)
-           timedout=`expr $timedout + 1`
-           if [ -t 1 ] ; then
-             printf "\033[35m%10s\033[0m\n" "TIMEDOUT"
-           else
-             printf "%10s\n" "TIMEDOUT"
-           fi
-           ;;
+          timedout=`expr $timedout + 1`
+          if [ -t 1 ] ; then
+            printf "\033[35m%10s\033[0m\n" "TIMEDOUT"
+          else
+            printf "%10s\n" "TIMEDOUT"
+          fi
+          ;;
         129|1[345]?|16[01])
-           killed=`expr $killed + 1`
-           if [ -t 1 ] ; then
-             printf "\033[30m%10s\033[0m\n" "KILLED(`expr $result - 128`)"
-           else
-             printf "%10s\n" "KILLED(`expr $result - 128`)"
-           fi
-           ;;
+          killed=`expr $killed + 1`
+          if [ -t 1 ] ; then
+            printf "\033[30m%10s\033[0m\n" "KILLED(`expr $result - 128`)"
+          else
+            printf "%10s\n" "KILLED(`expr $result - 128`)"
+          fi
+          ;;
         *)
-           if [ -t 1 ] ; then
-             printf "\033[36m%10s\033[0m\n" "UNKNOWN"
-           else
-             printf "%10s\n" "UNKNOWN"
-           fi
-           ;;
+          if [ -t 1 ] ; then
+            printf "\033[36m%10s\033[0m\n" "UNKNOWN"
+          else
+            printf "%10s\n" "UNKNOWN"
+          fi
+          ;;
       esac
       run=`expr $run + 1`
     else
