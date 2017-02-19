@@ -26,4 +26,4 @@
 # SUCH DAMAGE.
 #
 
-../run-tests.sh all-e-tests
+../run-tests.sh $* all-e-tests

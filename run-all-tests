@@ -26,7 +26,8 @@
 # SUCH DAMAGE.
 #
 
-./run-tests.sh sctp-as-tests/all-as-tests \
+./run-tests.sh $* \
+               sctp-as-tests/all-as-tests \
                sctp-at-tests/all-at-tests \
                sctp-imh-tests/all-imh-tests \
                sctp-dm-tests/all-dm-tests \
