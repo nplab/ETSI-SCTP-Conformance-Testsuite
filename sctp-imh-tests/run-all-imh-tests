@@ -26,4 +26,4 @@
 # SUCH DAMAGE.
 #
 
-../run-tests.sh $* all-imh-tests
+../run-tests.sh -t 70 $* all-imh-tests
