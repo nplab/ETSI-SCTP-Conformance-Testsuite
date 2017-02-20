@@ -13,7 +13,7 @@ The following table show the current status of the Implementation. Once the impl
 |[sctp-at-i-2-7-2](sctp-at-i-2-7-2.pkt "Reject user data from upper layer in the SHUTDOWN-RECEIVED state")                 | Yes (Note 5) | Yes       | No          | Passed (Note 6)| Passed         |
 |[sctp-at-i-2-7-3](sctp-at-i-2-7-3.pkt "Reject user data from upper layer in the SHUTDOWN-PENDING state")                  | Yes (Note 7) | Yes       | No          | Passed         | Passed         |
 |[sctp-at-i-2-7-4](sctp-at-i-2-7-4.pkt "Reject user data from upper layer in the SHUTDOWN-ACK_SENT state")                 | Yes (Note 8) | Yes       | No          | Passed         | Passed         |
-|[sctp-at-i-2-8](sctp-at-i-2-8.pkt     "Handling of DATA chunks in the SHUTDOWN-SENT state")                               | Yes (Note 9) | Yes       | No          | Passed         | Passed         |
+|[sctp-at-i-2-8](sctp-at-i-2-8.pkt     "Handling of DATA chunks in the SHUTDOWN-SENT state")                               | Yes          | Yes       | Yes (Note 9)| Passed         | Passed         |
 |[sctp-at-i-2-9](sctp-at-i-2-9.pkt     "Handling of DATA chunks in the SHUTDOWN-RECEIVED state")                           | Yes (Note 10)| Yes       | No          | Passed         | Passed         |
 |[sctp-at-i-2-10](sctp-at-i-2-10.pkt   "Handling of SHUTDOWN chunks when there is outstanding user data")                  | Yes          | Yes       | No          | Passed         | Passed         |
 |[sctp-at-i-2-11](sctp-at-i-2-11.pkt   "Handling of retransmission of SHUTDOWN chunks")                                    | Yes          | Yes       | No          | Passed         | Passed         |
@@ -31,6 +31,6 @@ The following table show the current status of the Implementation. Once the impl
 6. Fix for [sctp-at-i-2-7-2](sctp-at-i-2-7-2.pkt): [r287444](https://svnweb.freebsd.org/changeset/base/287444).
 7. When the association is in SHUTDOWN-PENDING state and `write()` is called, Linux reports `ESHUTDOWN` whereas FreeBSD reports `ECONNRESET`. Shouldn't `EPIPE` be reported?
 8. When the association is in SHUTDOWN-ACK-SENT state and `write()` is called, Linux reports `ESHUTDOWN` whereas FreeBSD reports `ECONNRESET`. Shouldn't `EPIPE` be reported?
-9. It is assumed that the sender of the SHUTDOWN always bundles a SACK, even if not necessary based on TSNs.
+9. Linux bundles a SACK with the SHUTDOWN, even if not necessary based on TSNs.
 10. Not sure where it is specified that DATA chunks after SHUTDOWN chunk needs to be discarded. Looks like a protocol violation to me.
 11. After more than Max.Assoc.Retrans retransmissions, FreeBSD reports `ECONNABORTED` whereas Linux reports `ETIMEDOUT` (similar to Note 1).
