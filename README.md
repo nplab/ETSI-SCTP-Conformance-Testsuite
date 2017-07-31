@@ -26,7 +26,7 @@ The following table shows the status of the test purposes splitted up in the 11 
 1. One test is not applicable since the maximum number of associations supported by the SCTP stack can't be controlled via the socket API. Two tests are not implementable within packetdrill since checking the randomness of the initiate tags is not supported.
 2. Support for multi-homing is required in packetdrill. This is currently missing and tracked in [packetdrill issue 28](https://github.com/nplab/packetdrill/issues/28).
 3. Support for injecting packets with non-unicast source addresses is required in packetdrill. This is currenty missing and tracked in [packetdrill issue 26](https://github.com/nplab/packetdrill/issues/26).
-4. Three tests are not applicable, since the socket layer does not have a message size limit for receiving messages. Partial delivery is used in the case the message can't be delivered at once.
+4. Three tests are not applicable, since the socket layer does not have a message size limit for receiving messages. Partial delivery is used in the case the message can't be delivered atomically.
 
 
 # Fixes for FreeBSD
