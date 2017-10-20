@@ -26,4 +26,4 @@
 # SUCH DAMAGE.
 #
 
-../run-tests.sh $* all-m-tests
+../run-tests.sh -t 10 -i tun0 $* all-m-tests
