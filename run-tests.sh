@@ -53,6 +53,9 @@ while getopts :d:i:p:P:t:T:v opt; do
     i)
       if [ `uname` = 'FreeBSD' ] ; then
         flags="${flags} --persistent_tun_dev --tun_dev=$OPTARG"
+      else
+        echo "Option not supported on this platform: -$OPTARG" >&2
+        exit 1
       fi
       ;;
     p)
