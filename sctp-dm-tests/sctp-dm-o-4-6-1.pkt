@@ -38,7 +38,7 @@
 // Inject a SHUTDOWN chunk directly after the INIT chunk
 +0.0 < sctp: SHUTDOWN[flgs=0, cum_tsn=0]
 // SHUTDOWN chunk should be ignored and the INTI chunk should be retransmitted
-+3.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
++1.0 > sctp: INIT[flgs=0, tag=1, a_rwnd=..., os=..., is=..., tsn=1, ...]
 +0.1 < sctp: INIT_ACK[flgs=0, tag=2, a_rwnd=1500, os=1, is=1, tsn=1, STATE_COOKIE[len=4, val=...]]
 +0.0 > sctp: COOKIE_ECHO[flgs=0, len=4, val=...]
 +0.1 < sctp: COOKIE_ACK[flgs=0]
